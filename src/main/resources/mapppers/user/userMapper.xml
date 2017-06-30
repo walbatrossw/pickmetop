@@ -8,6 +8,17 @@
       VALUES (#{email}, #{password}, #{name}, now(), now())
     </insert>
 
+    <!--회원리스트-->
+    <select id="list" resultType="com.cafe24.pickmetop.user.domain.User">
+      SELECT
+        ID AS id
+        , EMAIL AS email
+        , NAME AS name
+        , CREATE_DATE AS createDate
+        , MODIFIED_DATE AS modifiedDate
+	  FROM USER
+    </select>
+
     <!--로그인체크-->
     <select id="loginCheck" resultType="String">
         SELECT NAME FROM USER WHERE EMAIL = #{email} AND PASSWORD = #{password}

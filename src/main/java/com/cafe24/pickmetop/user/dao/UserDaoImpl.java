@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao{
     // 회원리스트
     @Override
     public List<User> list() {
-        return null;
+        return sqlSession.selectList("user.list");
     }
 
     // 회원상세정보

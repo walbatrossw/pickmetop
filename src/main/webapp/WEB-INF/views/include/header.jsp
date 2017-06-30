@@ -122,14 +122,14 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="dist/img/default-user-image.jpg" class="user-image" alt="User Image">
+                        <img src="/dist/img/default-user-image.jpg" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">Guest</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="dist/img/default-user-image.jpg" class="img-circle" alt="User Image">
+                            <img src="/dist/img/default-user-image.jpg" class="img-circle" alt="User Image">
 
                             <p>
                                 로그인 또는 회원가입 해주세요!
