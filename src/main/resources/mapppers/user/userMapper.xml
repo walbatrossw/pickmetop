@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
-<mapper namespace="sample">
+<mapper namespace="user">
+    <!--회원가입-->
+    <insert id="createUser">
+      INSERT INTO USER (EMAIL, PASSWORD, NAME, CREATE_DATE, MODIFIED_DATE)
+      VALUES (#{email}, #{password}, #{name}, now(), now())
+    </insert>
 
+    <!--로그인체크-->
+    <select id="loginCheck" resultType="String">
+        SELECT NAME FROM USER WHERE EMAIL = #{email} AND PASSWORD = #{password}
+    </select>
+
+    <!--로그인한 회원정보-->
+    <select id="loginUser" resultType="com.cafe24.pickmetop.user.domain.User">
+        SELECT
+            ID
+          , EMAIL
+          , NAME
+          , CREATE_DATE
+          , MODIFIED_DATE
+        FROM USER
+        WHERE EMAIL = #{email} AND PASSWORD = #{password}
+    </select>
 </mapper>

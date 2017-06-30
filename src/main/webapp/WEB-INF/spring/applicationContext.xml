@@ -8,8 +8,7 @@
 
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <!-- 연결문자열에 log4jdbc 가 추가됨 -->
-        <property name="url"
-                  value="jdbc:log4jdbc:mysql//localhost:3306/pickmetopdb?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/pickmetopdb?useUnicode=true&amp;characterEncoding=UTF-8" />
         <property name="username" value="doubless"/>
         <property name="password" value="qazwsxdc8375!"/>
     </bean>

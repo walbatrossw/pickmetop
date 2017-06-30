@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 <html>
-<jsp:include page="include/head.jsp"/>
+<%@ include file="include/head.jsp"%>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <!-- Main Header -->
-    <jsp:include page="include/header.jsp"/>
+    <%@ include file="include/header.jsp"%>
     <!-- Left side column. contains the logo and sidebar -->
-    <jsp:include page="include/left_side.jsp"/>
+    <%@ include file="include/left_side.jsp"%>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -28,21 +28,23 @@
         <section class="content">
 
             <!-- Your Page Content Here -->
-
+            <c:if test="${msg == 'success'}">
+                <h2>${sessionScope.email}(${sessionScope.name})님 환영합니다.</h2>
+            </c:if>
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <jsp:include page="include/footer.jsp"/>
+    <%@ include file="include/footer.jsp"%>
 
     <!-- Control Sidebar -->
-    <jsp:include page="include/control_sidebar.jsp"/>
+    <%@ include file="include/control_sidebar.jsp"%>
 </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-<jsp:include page="include/foot.jsp"/>
+<%@ include file="include/foot.jsp"%>
 </body>
 </html>
