@@ -64,9 +64,4 @@ public class UserDaoImpl implements UserDao{
         return sqlSession.selectOne("user.loginUser", user);
     }
 
-    // 회원 로그아웃
-    @Override
-    public void logout(HttpSession session) {
-
-    }
 }

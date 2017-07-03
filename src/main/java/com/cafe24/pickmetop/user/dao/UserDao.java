@@ -32,7 +32,4 @@ public interface UserDao {
     // 회원 로그인 정보
     User loginUser(User user);
 
-    // 회원 로그아웃
-    void logout(HttpSession session);
-
 }

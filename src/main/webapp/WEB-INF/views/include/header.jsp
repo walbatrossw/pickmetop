@@ -126,7 +126,9 @@
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">Guest</span>
                     </a>
-                    <ul class="dropdown-menu">
+                    <c:choose>
+                        <c:when test="${sessionScope.name == null}">
+                            <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
                             <img src="/dist/img/default-user-image.jpg" class="img-circle" alt="User Image">
@@ -160,6 +162,44 @@
                             </div>
                         </li>
                     </ul>
+                        </c:when>
+                        <c:otherwise>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="/dist/img/default-user-image.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        로그인 또는 회원가입 해주세요!
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">관심채용</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">자소서</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">이력서</a>
+                                            </div>
+                                        </div>
+                                    <!-- /.row -->
+                                    </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="/user/view?id=${sessionScope.id}" class="btn btn-default btn-flat">나의 정보</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/user/logout" class="btn btn-default btn-flat">로그아웃</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </c:otherwise>
+                    </c:choose>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
                 <li>

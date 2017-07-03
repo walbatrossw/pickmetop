@@ -15,7 +15,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
+                ${sessionScope.email}(${sessionScope.name})님 환영합니다
                 <small>Optional description</small>
             </h1>
             <ol class="breadcrumb">

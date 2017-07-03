@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
     }
 
     // 비밀번호 체크
-   @Override
+    @Override
     public boolean checkPw(String email, String password) {
         return false;
     }
@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
         boolean result = userDao.loginCheck(user);
         if (result) {
             User user1 = loginUser(user);
+            session.setAttribute("id", user1.getId());
             session.setAttribute("email", user1.getEmail());
             session.setAttribute("name", user1.getName());
         }
