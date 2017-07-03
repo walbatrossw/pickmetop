@@ -29,20 +29,20 @@ public class UserDaoImpl implements UserDao{
 
     // 회원상세정보
     @Override
-    public User show(String email) {
-        return null;
+    public User show(Long id) {
+        return sqlSession.selectOne("user.show", id);
     }
 
     // 회원정보 수정
     @Override
     public void update(User user) {
-
+        sqlSession.update("user.update", user);
     }
 
     // 회원삭제
     @Override
-    public void delete(String email) {
-
+    public void delete(Long id) {
+        sqlSession.delete("user.delete", id);
     }
 
     // 비밀번호 체크

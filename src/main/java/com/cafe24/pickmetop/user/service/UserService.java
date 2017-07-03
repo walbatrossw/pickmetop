@@ -15,13 +15,13 @@ public interface UserService {
     List<User> list();
 
     // 회원 정보 상세
-    User show(String email);
+    User show(Long id);
 
     // 회원 정보 수정
     void update(User user);
 
     // 회원 삭제
-    void delete(String email);
+    void delete(Long id);
 
     // 비밀번호 체크
     boolean checkPw(String email, String password);

@@ -19,6 +19,35 @@
 	  FROM USER
     </select>
 
+    <!--회원 정보 상세 보기-->
+    <select id="show" resultType="com.cafe24.pickmetop.user.domain.User">
+        SELECT
+        ID AS id
+        , EMAIL AS email
+        , NAME AS name
+        , CREATE_DATE AS createDate
+        , MODIFIED_DATE AS modifiedDate
+	  FROM USER
+      WHERE ID = #{id}
+    </select>
+
+    <!--회원 정보 수정 처리-->
+    <update id="update" parameterType="com.cafe24.pickmetop.user.domain.User">
+        UPDATE USER
+        SET
+            EMAIL = #{email}
+            , NAME = #{name}
+            , PASSWORD = #{password}
+            , MODIFIED_DATE = NOW()
+        WHERE
+            ID = #{id}
+    </update>
+
+    <!--회원 삭제-->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM user WHERE ID = #{id}
+    </delete>
+
     <!--로그인체크-->
     <select id="loginCheck" resultType="String">
         SELECT NAME FROM USER WHERE EMAIL = #{email} AND PASSWORD = #{password}

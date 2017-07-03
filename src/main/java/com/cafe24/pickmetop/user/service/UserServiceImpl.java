@@ -27,20 +27,20 @@ public class UserServiceImpl implements UserService{
 
     // 회원 정보 상세보기
     @Override
-    public User show(String email) {
-        return null;
+    public User show(Long id) {
+        return userDao.show(id);
     }
 
     // 회원 정보 수정
     @Override
     public void update(User user) {
-
+        userDao.update(user);
     }
 
     // 회원 삭제
     @Override
-    public void delete(String email) {
-
+    public void delete(Long id) {
+        userDao.delete(id);
     }
 
     // 비밀번호 체크

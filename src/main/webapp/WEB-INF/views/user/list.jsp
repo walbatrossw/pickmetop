@@ -38,34 +38,27 @@
                             <div class="box-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                    <tr>
-                                        <th>회원 번호</th>
-                                        <th>회원 이메일(아이디)</th>
-                                        <th>이름</th>
-                                        <th>가입일자</th>
-                                        <th>회원정보 변경일자</th>
-                                    </tr>
+                                        <tr>
+                                            <th>회원 번호</th>
+                                            <th>회원 이메일(아이디)</th>
+                                            <th>이름</th>
+                                            <th>가입일자</th>
+                                            <th>회원정보 변경일자</th>
+                                            <th>회원 삭제</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="row" items="${list}">
-                                    <tr>
-                                        <td>${row.id}</td>
-                                        <td>${row.email}</td>
-                                        <td>${row.name}</td>
-                                        <td>${row.createDate}</td>
-                                        <td>${row.modifiedDate}</td>
-                                    </tr>
-                                    </c:forEach>
+                                        <c:forEach var="row" items="${list}">
+                                        <tr>
+                                            <td>${row.id}</td>
+                                            <td><a href="/user/view?id=${row.id}">${row.email}</a></td>
+                                            <td>${row.name}</td>
+                                            <td><fmt:formatDate value="${row.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                            <td><fmt:formatDate value="${row.modifiedDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                            <td><a href="/user/delete?id=${row.id}">삭제</a></td>
+                                        </tr>
+                                        </c:forEach>
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>회원 번호</th>
-                                        <th>회원 이메일(아이디)</th>
-                                        <th>이름</th>
-                                        <th>가입일자</th>
-                                        <th>회원정보 변경일자</th>
-                                    </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                             <!-- /.box-body -->

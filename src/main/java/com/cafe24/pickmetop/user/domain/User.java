@@ -1,5 +1,6 @@
 package com.cafe24.pickmetop.user.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User {

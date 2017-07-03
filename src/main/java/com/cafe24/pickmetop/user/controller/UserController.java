@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -40,21 +41,29 @@ public class UserController {
         model.addAttribute("list", list);
         return "user/list";
     }
+
     // 회원 정보 상세
     @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public String view() {
+    public String view(@RequestParam Long id, Model model) {
+        model.addAttribute("user", userService.show(id));
         return "user/view";
     }
+
     // 회원 정보 수정
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update() {
-        return "redirect:user/list";
+    public String update(@ModelAttribute User user) {
+        System.out.println(user);
+        userService.update(user);
+        return "redirect:/user/list";
     }
+
     // 회원 삭제
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete() {
-        return "redirect:user/list";
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(@RequestParam Long id) {
+        userService.delete(id);
+        return "redirect:/user/list";
     }
+
     // 로그인 페이지
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
