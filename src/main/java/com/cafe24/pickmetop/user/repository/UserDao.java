@@ -1,9 +1,8 @@
-package com.cafe24.pickmetop.user.dao;
+package com.cafe24.pickmetop.user.repository;
 
 
 import com.cafe24.pickmetop.user.domain.User;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface UserDao {

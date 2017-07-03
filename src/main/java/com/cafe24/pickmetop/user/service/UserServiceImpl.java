@@ -1,6 +1,6 @@
 package com.cafe24.pickmetop.user.service;
 
-import com.cafe24.pickmetop.user.dao.UserDaoImpl;
+import com.cafe24.pickmetop.user.repository.UserDaoImpl;
 import com.cafe24.pickmetop.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
