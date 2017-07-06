@@ -8,10 +8,10 @@ import java.util.Date;
 public class ResumeClub {
     private Long id;
     private Long resumeId;
-    private String name;
+    private String clubName;
     private String content;
-    private Date beginDate;
-    private Date endDate;
+    private Date clubBeginDate;
+    private Date clubEndDate;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class ResumeClub {
     }
 
     public String getName() {
-        return name;
+        return clubName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.clubName = name;
     }
 
     public String getContent() {
@@ -45,20 +45,20 @@ public class ResumeClub {
         this.content = content;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getClubBeginDate() {
+        return clubBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setClubBeginDate(Date clubBeginDate) {
+        this.clubBeginDate = clubBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getClubEndDate() {
+        return clubEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setClubEndDate(Date clubEndDate) {
+        this.clubEndDate = clubEndDate;
     }
 
     @Override
@@ -66,10 +66,10 @@ public class ResumeClub {
         return "ResumeClub{" +
                 "id=" + id +
                 ", resumeId=" + resumeId +
-                ", name='" + name + '\'' +
+                ", clubName='" + clubName + '\'' +
                 ", content='" + content + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", clubBeginDate=" + clubBeginDate +
+                ", clubEndDate=" + clubEndDate +
                 '}';
     }
 }

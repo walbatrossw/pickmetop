@@ -8,9 +8,9 @@ public class ResumeMilitary {
     private String state;
     private String group;
     private String rank;
-    private String position;
-    private Date beginDate;
-    private Date endDate;
+    private String branch;
+    private Date MilitaryBeginDate;
+    private Date MilitaryEndDate;
 
     public Long getId() {
         return id;
@@ -52,28 +52,28 @@ public class ResumeMilitary {
         this.rank = rank;
     }
 
-    public String getPosition() {
-        return position;
+    public String getBranch() {
+        return branch;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getMilitaryBeginDate() {
+        return MilitaryBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setMilitaryBeginDate(Date militaryBeginDate) {
+        MilitaryBeginDate = militaryBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getMilitaryEndDate() {
+        return MilitaryEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setMilitaryEndDate(Date militaryEndDate) {
+        MilitaryEndDate = militaryEndDate;
     }
 
     @Override
@@ -84,9 +84,9 @@ public class ResumeMilitary {
                 ", state='" + state + '\'' +
                 ", group='" + group + '\'' +
                 ", rank='" + rank + '\'' +
-                ", position='" + position + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", branch='" + branch + '\'' +
+                ", MilitaryBeginDate=" + MilitaryBeginDate +
+                ", MilitaryEndDate=" + MilitaryEndDate +
                 '}';
     }
 }

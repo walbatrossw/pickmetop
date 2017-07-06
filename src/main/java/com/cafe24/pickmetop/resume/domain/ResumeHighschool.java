@@ -5,10 +5,10 @@ import java.util.Date;
 public class ResumeHighschool {
     private Long id;
     private Long resumeId;
-    private String name;
+    private String schoolName;
     private String category;
-    private Date beginDate;
-    private Date endDate;
+    private Date highschoolBeginDate;
+    private Date highschoolEndDate;
 
     public Long getId() {
         return id;
@@ -26,12 +26,12 @@ public class ResumeHighschool {
         this.resumeId = resumeId;
     }
 
-    public String getName() {
-        return name;
+    public String getSchoolName() {
+        return schoolName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
     public String getCategory() {
@@ -42,20 +42,20 @@ public class ResumeHighschool {
         this.category = category;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getHighschoolBeginDate() {
+        return highschoolBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setHighschoolBeginDate(Date highschoolBeginDate) {
+        this.highschoolBeginDate = highschoolBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getHighschoolEndDate() {
+        return highschoolEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setHighschoolEndDate(Date highschoolEndDate) {
+        this.highschoolEndDate = highschoolEndDate;
     }
 
     @Override
@@ -63,10 +63,10 @@ public class ResumeHighschool {
         return "ResumeHighschool{" +
                 "id=" + id +
                 ", resumeId=" + resumeId +
-                ", name='" + name + '\'' +
+                ", schoolName='" + schoolName + '\'' +
                 ", category='" + category + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", highschoolBeginDate=" + highschoolBeginDate +
+                ", highschoolEndDate=" + highschoolEndDate +
                 '}';
     }
 }

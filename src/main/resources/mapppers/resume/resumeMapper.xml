@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="resume">
+    <select id="selectOneByUserId" resultType="boolean">
+      SELECT COUNT(USER_ID) FROM tb_resume WHERE USER_ID = #{userId}
+    </select>
+
+    <insert id="insertResume">
+        INSERT INTO tb_resume (
+          USER_ID
+          , NAME
+          , CREATE_DATE
+          , MODIFIED_DATE
+        ) VALUES (
+          #{userId}
+          , #{name}
+          , NOW()
+          , NOW() )
+    </insert>
+
+    <update id="updateResume">
+        UPDATE tb_resume
+	      SET
+		    NAME = #{name}
+		    , MODIFIED_DATE = NOW()
+	      WHERE ID = #{id}
+    </update>
+</mapper>

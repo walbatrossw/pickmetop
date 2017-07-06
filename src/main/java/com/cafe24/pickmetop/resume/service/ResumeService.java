@@ -1,7 +1,9 @@
 package com.cafe24.pickmetop.resume.service;
 
-/**
- * Created by walba on 2017-07-03.
- */
+import com.cafe24.pickmetop.resume.domain.Resume;
+
 public interface ResumeService {
+    boolean isSameResume(Long userId);
+    void create(Resume resume);
+    void update(Resume resume);
 }

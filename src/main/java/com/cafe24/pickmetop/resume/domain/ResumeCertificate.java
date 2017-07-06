@@ -2,18 +2,15 @@ package com.cafe24.pickmetop.resume.domain;
 
 import java.util.Date;
 
-/**
- * Created by walba on 2017-07-03.
- */
 public class ResumeCertificate {
     private Long id;
     private Long resumeId;
-    private String name;
-    private String grade;
-    private String host;
-    private String regNum;
-    private Date beginDate;
-    private Date endDate;
+    private String certificatName;
+    private String certificatGrade;
+    private String certificatHost;
+    private String certificatRegNum;
+    private Date certificateBeginDate;
+    private Date certificateEndDate;
 
     public Long getId() {
         return id;
@@ -31,52 +28,52 @@ public class ResumeCertificate {
         this.resumeId = resumeId;
     }
 
-    public String getName() {
-        return name;
+    public String getCertificatName() {
+        return certificatName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCertificatName(String certificatName) {
+        this.certificatName = certificatName;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getCertificatGrade() {
+        return certificatGrade;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setCertificatGrade(String certificatGrade) {
+        this.certificatGrade = certificatGrade;
     }
 
-    public String getHost() {
-        return host;
+    public String getCertificatHost() {
+        return certificatHost;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setCertificatHost(String certificatHost) {
+        this.certificatHost = certificatHost;
     }
 
-    public String getRegNum() {
-        return regNum;
+    public String getCertificatRegNum() {
+        return certificatRegNum;
     }
 
-    public void setRegNum(String regNum) {
-        this.regNum = regNum;
+    public void setCertificatRegNum(String certificatRegNum) {
+        this.certificatRegNum = certificatRegNum;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getCertificateBeginDate() {
+        return certificateBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setCertificateBeginDate(Date certificateBeginDate) {
+        this.certificateBeginDate = certificateBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getCertificateEndDate() {
+        return certificateEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setCertificateEndDate(Date certificateEndDate) {
+        this.certificateEndDate = certificateEndDate;
     }
 
     @Override
@@ -84,12 +81,12 @@ public class ResumeCertificate {
         return "ResumeCertificate{" +
                 "id=" + id +
                 ", resumeId=" + resumeId +
-                ", name='" + name + '\'' +
-                ", grade='" + grade + '\'' +
-                ", host='" + host + '\'' +
-                ", regNum='" + regNum + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", certificatName='" + certificatName + '\'' +
+                ", certificatGrade='" + certificatGrade + '\'' +
+                ", certificatHost='" + certificatHost + '\'' +
+                ", certificatRegNum='" + certificatRegNum + '\'' +
+                ", certificateBeginDate=" + certificateBeginDate +
+                ", certificateEndDate=" + certificateEndDate +
                 '}';
     }
 }

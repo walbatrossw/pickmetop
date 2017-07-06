@@ -10,8 +10,8 @@ public class ResumeActivity {
     private Long resumeId;
     private String title;
     private String content;
-    private Date beginDate;
-    private Date endDate;
+    private Date activityBeginDate;
+    private Date activityEndDate;
 
     public Long getId() {
         return id;
@@ -45,20 +45,20 @@ public class ResumeActivity {
         this.content = content;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getActivityBeginDate() {
+        return activityBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setActivityBeginDate(Date activityBeginDate) {
+        this.activityBeginDate = activityBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getActivityEndDate() {
+        return activityEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setActivityEndDate(Date activityEndDate) {
+        this.activityEndDate = activityEndDate;
     }
 
     @Override
@@ -68,8 +68,8 @@ public class ResumeActivity {
                 ", resumeId=" + resumeId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", activityBeginDate=" + activityBeginDate +
+                ", activityEndDate=" + activityEndDate +
                 '}';
     }
 }

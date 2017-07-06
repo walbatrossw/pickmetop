@@ -11,8 +11,8 @@ public class ResumeUniversity {
     private String doubleMojor;
     private String doubleMojorName;
     private String credit;
-    private Date beginDate;
-    private Date endDate;
+    private Date univBeginDate;
+    private Date univEndDate;
 
     public Long getId() {
         return id;
@@ -78,20 +78,20 @@ public class ResumeUniversity {
         this.credit = credit;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getUnivBeginDate() {
+        return univBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setUnivBeginDate(Date univBeginDate) {
+        this.univBeginDate = univBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getUnivEndDate() {
+        return univEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setUnivEndDate(Date univEndDate) {
+        this.univEndDate = univEndDate;
     }
 
     @Override
@@ -105,8 +105,8 @@ public class ResumeUniversity {
                 ", doubleMojor='" + doubleMojor + '\'' +
                 ", doubleMojorName='" + doubleMojorName + '\'' +
                 ", credit='" + credit + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", univBeginDate=" + univBeginDate +
+                ", univEndDate=" + univEndDate +
                 '}';
     }
 }

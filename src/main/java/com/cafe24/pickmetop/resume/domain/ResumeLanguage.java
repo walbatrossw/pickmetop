@@ -11,8 +11,8 @@ public class ResumeLanguage {
     private String grade;
     private String host;
     private String regNum;
-    private Date beginDate;
-    private Date endDate;
+    private Date LanguageBeginDate;
+    private Date LanguageEndDate;
 
     public Long getId() {
         return id;
@@ -78,20 +78,20 @@ public class ResumeLanguage {
         this.regNum = regNum;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getLanguageBeginDate() {
+        return LanguageBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setLanguageBeginDate(Date languageBeginDate) {
+        LanguageBeginDate = languageBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getLanguageEndDate() {
+        return LanguageEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setLanguageEndDate(Date languageEndDate) {
+        LanguageEndDate = languageEndDate;
     }
 
     @Override
@@ -105,8 +105,8 @@ public class ResumeLanguage {
                 ", grade='" + grade + '\'' +
                 ", host='" + host + '\'' +
                 ", regNum='" + regNum + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", LanguageBeginDate=" + LanguageBeginDate +
+                ", LanguageEndDate=" + LanguageEndDate +
                 '}';
     }
 }

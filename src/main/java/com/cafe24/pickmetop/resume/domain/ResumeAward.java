@@ -2,9 +2,6 @@ package com.cafe24.pickmetop.resume.domain;
 
 import java.util.Date;
 
-/**
- * Created by walba on 2017-07-03.
- */
 public class ResumeAward {
     private Long id;
     private Long resumeId;

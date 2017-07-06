@@ -13,8 +13,8 @@ public class ResumeCareer {
     private String department;
     private String task;
     private String resign;
-    private Date beginDate;
-    private Date endDate;
+    private Date careerBeginDate;
+    private Date careerEndDate;
 
     public Long getId() {
         return id;
@@ -72,20 +72,20 @@ public class ResumeCareer {
         this.resign = resign;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getCareerBeginDate() {
+        return careerBeginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
+    public void setCareerBeginDate(Date careerBeginDate) {
+        this.careerBeginDate = careerBeginDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getCareerEndDate() {
+        return careerEndDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setCareerEndDate(Date careerEndDate) {
+        this.careerEndDate = careerEndDate;
     }
 
     @Override
@@ -98,8 +98,8 @@ public class ResumeCareer {
                 ", department='" + department + '\'' +
                 ", task='" + task + '\'' +
                 ", resign='" + resign + '\'' +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
+                ", careerBeginDate=" + careerBeginDate +
+                ", careerEndDate=" + careerEndDate +
                 '}';
     }
 }

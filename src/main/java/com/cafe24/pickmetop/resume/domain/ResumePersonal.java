@@ -5,15 +5,15 @@ import java.util.Date;
 public class ResumePersonal {
     private Long id;
     private Long resumeId;
-    private String korName;
-    private String engName;
+    private String name;
     private String gender;
     private Date birthDate;
     private String phone;
-    private String cellPhone;
+    private String mobilePhone;
     private String email;
+    private String sns;
     private String address;
-    private String photo;
+    private String photoName;
 
     public Long getId() {
         return id;
@@ -31,20 +31,12 @@ public class ResumePersonal {
         this.resumeId = resumeId;
     }
 
-    public String getKorName() {
-        return korName;
+    public String getName() {
+        return name;
     }
 
-    public void setKorName(String korName) {
-        this.korName = korName;
-    }
-
-    public String getEngName() {
-        return engName;
-    }
-
-    public void setEngName(String engName) {
-        this.engName = engName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGender() {
@@ -71,12 +63,12 @@ public class ResumePersonal {
         this.phone = phone;
     }
 
-    public String getCellPhone() {
-        return cellPhone;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public void setCellPhone(String cellPhone) {
-        this.cellPhone = cellPhone;
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     public String getEmail() {
@@ -87,6 +79,14 @@ public class ResumePersonal {
         this.email = email;
     }
 
+    public String getSns() {
+        return sns;
+    }
+
+    public void setSns(String sns) {
+        this.sns = sns;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -95,12 +95,12 @@ public class ResumePersonal {
         this.address = address;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPhotoName() {
+        return photoName;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     @Override
@@ -108,15 +108,15 @@ public class ResumePersonal {
         return "ResumePersonal{" +
                 "id=" + id +
                 ", resumeId=" + resumeId +
-                ", korName='" + korName + '\'' +
-                ", engName='" + engName + '\'' +
+                ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthDate=" + birthDate +
                 ", phone='" + phone + '\'' +
-                ", cellPhone='" + cellPhone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
                 ", email='" + email + '\'' +
+                ", sns='" + sns + '\'' +
                 ", address='" + address + '\'' +
-                ", photo='" + photo + '\'' +
+                ", photoName='" + photoName + '\'' +
                 '}';
     }
 }

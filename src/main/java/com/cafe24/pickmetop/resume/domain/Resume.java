@@ -4,15 +4,13 @@ import com.cafe24.pickmetop.user.domain.User;
 
 import java.util.Date;
 
-/**
- * Created by walba on 2017-07-03.
- */
 public class Resume {
     private Long id;
-    private User user;
-    private String resumeName;
+    private Long userId;
+    private String name;
     private Date createDate;
     private Date modifiedDate;
+
 
     public Long getId() {
         return id;
@@ -22,20 +20,20 @@ public class Resume {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getResumeName() {
-        return resumeName;
+    public String getName() {
+        return name;
     }
 
-    public void setResumeName(String resumeName) {
-        this.resumeName = resumeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreateDate() {
@@ -58,8 +56,8 @@ public class Resume {
     public String toString() {
         return "Resume{" +
                 "id=" + id +
-                ", user=" + user +
-                ", resumeName='" + resumeName + '\'' +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
                 ", createDate=" + createDate +
                 ", modifiedDate=" + modifiedDate +
                 '}';

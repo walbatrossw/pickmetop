@@ -63,8 +63,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-pencil"></i> 채용등록</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-list"></i> 채용목록</a></li>
+                    <li><a href="/recruitment/create"><i class="fa fa-pencil"></i> 채용등록</a></li>
+                    <li><a href="/recruitment/list"><i class="fa fa-list"></i> 채용목록</a></li>
+                    <li><a href="/recruitment/update"><i class="fa fa-list"></i> 채용목록</a></li>
                 </ul>
             </li>
 
@@ -78,8 +79,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-pencil"></i> 기업등록</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-list"></i> 기업목록</a></li>
+                    <li><a href="/company/info/create"><i class="fa fa-pencil"></i> 기업정보 등록</a></li>
+                    <li><a href="/company/info/list"><i class="fa fa-list"></i> 기업정보 목록</a></li>
+                    <li><a href="/company/info/update"><i class="fa fa-list"></i> 기업정보 수정</a></li>
                 </ul>
             </li>
 
@@ -92,8 +94,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-calendar"></i> 채용달력</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-list"></i> 채용리스트</a></li>
+                    <li><a href="/recruitment/calender"><i class="fa fa-calendar"></i> 채용달력</a></li>
                 </ul>
             </li>
 
@@ -121,8 +122,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-pencil"></i> 자기소개서 작성</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-list"></i> 자기소개서 목록</a></li>
+                    <li><a href="/coverletter/create"><i class="fa fa-pencil"></i> 자기소개서 작성</a></li>
+                    <li><a href="/coverletter/list"><i class="fa fa-list"></i> 자기소개서 목록</a></li>
                 </ul>
             </li>
 
@@ -135,9 +136,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-check-square-o"></i> 기업리뷰</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-check-square-o"></i> 연봉정보</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-check-square-o"></i> 면접후기</a></li>
+                    <li><a href="/company/review/list"><i class="fa fa-check-square-o"></i> 기업리뷰 목록</a></li>
+                    <li><a href="/company/salary/list"><i class="fa fa-check-square-o"></i> 연봉정보 목록</a></li>
+                    <li><a href="/company/interview/list"><i class="fa fa-check-square-o"></i> 면접후기 목록</a></li>
                 </ul>
             </li>
 
@@ -150,13 +151,13 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-comments"></i> 전체글</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-commenting-o"></i> 잡담</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-child"></i> 근무환경</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-exclamation"></i> 자소서</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-book"></i> 인적성</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-institution"></i> 자격증</a></li>
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-language"></i> 어학</a></li>
+                    <li><a href="/freeboard/list/all"><i class="fa fa-comments"></i> 전체글</a></li>
+                    <li><a href="/freeboard/list/free"><i class="fa fa-commenting-o"></i> 잡담</a></li>
+                    <li><a href="/freeboard/list/condition"><i class="fa fa-child"></i> 근무환경</a></li>
+                    <li><a href="/freeboard/list/coverletter"><i class="fa fa-exclamation"></i> 자소서</a></li>
+                    <li><a href="/freeboard/list/test"><i class="fa fa-book"></i> 인적성</a></li>
+                    <li><a href="/freeboard/list/certificate"><i class="fa fa-institution"></i> 자격증</a></li>
+                    <li><a href="/freeboard/list/language"><i class="fa fa-language"></i> 어학</a></li>
                 </ul>
             </li>
         </ul>

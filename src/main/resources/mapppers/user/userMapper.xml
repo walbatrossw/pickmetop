@@ -4,7 +4,7 @@
 <mapper namespace="user">
     <!--회원가입-->
     <insert id="createUser">
-      INSERT INTO USER (EMAIL, PASSWORD, NAME, CREATE_DATE, MODIFIED_DATE)
+      INSERT INTO tb_user (EMAIL, PASSWORD, NAME, CREATE_DATE, MODIFIED_DATE)
       VALUES (#{email}, #{password}, #{name}, now(), now())
     </insert>
 
@@ -16,7 +16,7 @@
         , NAME AS name
         , CREATE_DATE AS createDate
         , MODIFIED_DATE AS modifiedDate
-	  FROM USER
+	  FROM tb_user
     </select>
 
     <!--회원 정보 상세 보기-->
@@ -27,13 +27,13 @@
         , NAME AS name
         , CREATE_DATE AS createDate
         , MODIFIED_DATE AS modifiedDate
-	  FROM USER
+	  FROM tb_user
       WHERE ID = #{id}
     </select>
 
     <!--회원 정보 수정 처리-->
     <update id="update" parameterType="com.cafe24.pickmetop.user.domain.User">
-        UPDATE USER
+        UPDATE tb_user
         SET
             EMAIL = #{email}
             , NAME = #{name}
@@ -45,12 +45,12 @@
 
     <!--회원 삭제-->
     <delete id="delete" parameterType="Long">
-        DELETE FROM user WHERE ID = #{id}
+        DELETE FROM tb_user WHERE ID = #{id}
     </delete>
 
     <!--로그인체크-->
     <select id="loginCheck" resultType="String">
-        SELECT NAME FROM USER WHERE EMAIL = #{email} AND PASSWORD = #{password}
+        SELECT NAME FROM tb_user WHERE EMAIL = #{email} AND PASSWORD = #{password}
     </select>
 
     <!--로그인한 회원정보-->
@@ -61,7 +61,7 @@
           , NAME
           , CREATE_DATE
           , MODIFIED_DATE
-        FROM USER
+        FROM tb_user
         WHERE EMAIL = #{email} AND PASSWORD = #{password}
     </select>
 </mapper>

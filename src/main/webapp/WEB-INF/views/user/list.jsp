@@ -19,8 +19,8 @@
                 <small>Pick Me 회원 리스트</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> 회원관리</a></li>
+                <li class="active">회원 목록</li>
             </ol>
         </section>
 
