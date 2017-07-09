@@ -16,6 +16,19 @@
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">관리자<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="divider"></li>
+                        <li><a href="/admin/register">관리자 로그인</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/admin/login">관리자 가입</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">

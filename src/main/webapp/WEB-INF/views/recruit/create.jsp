@@ -72,6 +72,7 @@
                         </div>
                         <!-- /.box-primary -->
                     </div>
+                    <!--기업 채용정보-->
                     <div class="recruitCompanyJob">
                         <div class="box box-success">
                             <div class="box-header with-border">
@@ -148,8 +149,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.box -->
+                        <!-- /.box-success-->
                     </div>
+                    <!--직무별 채용정보-->
                 </form>
                 <!-- /.form -->
             </div>
@@ -172,7 +174,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
+<!-- JS SCRIPTS -->
 <%@ include file="../include/foot.jsp" %>
 <script src="/dist/js/recruit/recruitAdd.js"></script>
 </body>

@@ -1,5 +1,6 @@
 package com.cafe24.pickmetop.user.service;
 
+import com.cafe24.pickmetop.user.repository.UserDao;
 import com.cafe24.pickmetop.user.repository.UserDaoImpl;
 import com.cafe24.pickmetop.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserDaoImpl userDao;
+    UserDao userDao;
 
     // 회원가입
     @Override

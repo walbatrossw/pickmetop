@@ -1,6 +1,7 @@
 package com.cafe24.pickmetop.user.controller;
 
 import com.cafe24.pickmetop.user.domain.User;
+import com.cafe24.pickmetop.user.service.UserService;
 import com.cafe24.pickmetop.user.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
 
     // 회원가입 페이지
     @RequestMapping(value = "/register", method = RequestMethod.GET)
