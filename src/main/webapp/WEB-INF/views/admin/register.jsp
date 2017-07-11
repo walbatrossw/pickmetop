@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <jsp:include page="../include/head.jsp"/>
+    <%@ include file="../include/header.jsp"%>
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -13,7 +13,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">P!ck ME 관리자 가입 페이지</p>
 
-        <form action="/user/register" method="post">
+        <form action="${path}/admin/register" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" id="name" name="name" placeholder="이름">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -39,12 +39,12 @@
             </div>
         </form>
 
-        <a href="/admin/login" class="text-center">관리자 로그인페이지</a>
+        <a href="${path}/admin/login" class="text-center">관리자 로그인페이지</a>
     </div>
     <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
-<jsp:include page="../include/foot.jsp"/>
+<%@ include file="../include/footer.jsp"%>
 <script>
 
 </script>

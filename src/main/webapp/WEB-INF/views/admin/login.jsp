@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="../include/head.jsp"%>
+    <%@ include file="../include/header.jsp"%>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -12,8 +12,15 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">P!ck ME 관리자 로그인페이지</p>
-
-        <form action="/user/login" method="post">
+        <div>
+            <c:if test="${msg == 'welcome'}">
+                <div style="color: red">
+                    관리자 회원가입이 완료되었습니다.
+                    로그인해주세요.
+                </div>
+            </c:if>
+        </div>
+        <form action="${path}/admin/login" method="post">
             <div class="form-group has-feedback">
                 <input type="email" class="form-control" name="email" placeholder="이메일">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -56,14 +63,14 @@
         </form>
 
         <a href="#">비밀번호 찾기</a><br>
-        <a href="/admin/register" class="text-center">관리자 가입 페이지</a>
+        <a href="${path}/admin/register" class="text-center">관리자 가입 페이지</a>
 
     </div>
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 
-<%@ include file="../include/foot.jsp"%>
+<%@ include file="../include/footer.jsp"%>
 
 </body>
 </html>

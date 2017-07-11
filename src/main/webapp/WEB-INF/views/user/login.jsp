@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="../include/head.jsp"%>
+    <%@ include file="../include/header.jsp" %>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -12,8 +12,15 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">P1ck ME와 함께 취업 성공해봐요!</p>
-
-        <form action="/user/login" method="post">
+        <div>
+            <c:if test="${msg == 'welcome'}">
+                <div style="color: red">
+                    회원가입이 완료되었습니다.<br/>
+                    환영합니다! 로그인해주세요.
+                </div>
+            </c:if>
+        </div>
+        <form action="${path}/user/login" method="post">
             <div class="form-group has-feedback">
                 <input type="email" class="form-control" name="email" placeholder="이메일">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -57,20 +64,21 @@
 
         <div class="social-auth-links text-center">
             <p>- 또는 -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 페이스북으로 Login</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i>구글계정으로 Login</a>
+            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 페이스북으로
+                Login</a>
+            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i>구글계정으로
+                Login</a>
         </div>
         <!-- /.social-auth-links -->
 
         <a href="#">비밀번호 찾기</a><br>
-        <a href="/user/register/" class="text-center">회원가입 하기</a>
+        <a href="${path}/user/register" class="text-center">회원가입 하기</a>
 
     </div>
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 
-<%@ include file="../include/foot.jsp"%>
-
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -1,50 +1,54 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-
 <html>
-<%@ include file="include/head.jsp"%>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<head>
+    <%@ include file="include/header.jsp" %>
+</head>
+<body class="fixed skin-blue-light sidebar-mini">
 <div class="wrapper">
-    <!-- Main Header -->
-    <%@ include file="include/header.jsp"%>
+
+    <%@ include file="include/main_header.jsp" %>
+
     <!-- Left side column. contains the logo and sidebar -->
-    <%@ include file="include/left_side.jsp"%>
+    <%@ include file="include/main_sidebar.jsp" %>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                ${sessionScope.email}(${sessionScope.name})님 환영합니다
-                <small>Optional description</small>
+                임시 메인페이지
+                <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
+            <!-- Main row -->
+            <div class="row">
+                <section class="col-lg-12">
+                    임시 메인 페이지 입니다....
+                </section>
+            </div>
+            <!-- /.row (main row) -->
 
-            <!-- Your Page Content Here -->
-            <c:if test="${msg == 'success'}">
-                <h2>${sessionScope.email}(${sessionScope.name})님 환영합니다.</h2>
-            </c:if>
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Main Footer -->
-    <%@ include file="include/footer.jsp"%>
+    <%@ include file="include/main_footer.jsp" %>
 
     <!-- Control Sidebar -->
-    <%@ include file="include/control_sidebar.jsp"%>
+    <%@ include file="include/control_sidebar.jsp" %>
+    <!-- /.control-sidebar -->
+
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-<%@ include file="include/foot.jsp"%>
+<%@ include file="include/footer.jsp" %>
 </body>
 </html>
