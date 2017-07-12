@@ -54,7 +54,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="/dist/img/default-user-image.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">GUEST</span>
+                                <span class="hidden-xs">회원가입 또는 로그인</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- Menu Header : User image -->
