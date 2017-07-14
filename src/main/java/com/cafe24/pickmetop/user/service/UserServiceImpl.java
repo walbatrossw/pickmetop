@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
     /*회원 목록 : list()*/
     @Override
     public List<User> list() {
-        return null;
+        return userDao.list();
     }
 
     /*회원 정보 상세조회 : findOneById()*/

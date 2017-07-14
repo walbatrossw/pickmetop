@@ -39,9 +39,21 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <c:choose>
-                <c:when test="${sessionScope.adminId != null}">
+            <%--<c:choose>--%>
+                <%--<c:when test="${sessionScope.adminId != null}">--%>
                     <li class="header">관리자</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>관리자 관리</span>
+                            <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="${path}/admin/list"><i class="fa fa-list"></i> 관리자 목록</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i>
@@ -84,8 +96,8 @@
                             <li><a href="${path}/company/info/update"><i class="fa fa-list"></i> 기업정보 수정</a></li>
                         </ul>
                     </li>
-                </c:when>
-                <c:otherwise>
+                <%--</c:when>--%>
+                <%--<c:otherwise>--%>
                     <li class="header">메뉴</li>
                     <li class="treeview">
                         <a href="#">
@@ -167,8 +179,8 @@
                             <li><a href="${path}/freeboard/list/language"><i class="fa fa-language"></i> 어학</a></li>
                         </ul>
                     </li>
-                </c:otherwise>
-            </c:choose>
+                <%--</c:otherwise>--%>
+            <%--</c:choose>--%>
 
 
         </ul>

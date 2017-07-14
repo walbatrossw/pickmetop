@@ -53,9 +53,17 @@
     <div class="text-vertical-center">
         <h1> P!ck ME </h1>
         <h3>취업 성공의 지름길!!!</h3>
+        <h4>
+            <b>프로젝트 소개 페이지입니다. <br/>
+                프로젝트의 간략한 소개를 보실수 있습니다.
+            </b>
+        </h4>
         <br>
-        <a href="${path}/admin/login" class="btn btn-dark btn-lg">관리자 페이지</a>
-        <a href="${path}/user/login" class="btn btn-dark btn-lg">사용자 페이지</a>
+        <div>
+            <a href="${path}/admin/login" class="btn btn-dark btn-lg">관리자 PAGE</a>
+            <a href="${path}/main" class="btn btn-dark btn-lg">메인으로 GO!</a>
+            <a href="${path}/user/login" class="btn btn-dark btn-lg">사용자 PAGE</a>
+        </div>
     </div>
 </header>
 

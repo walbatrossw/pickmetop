@@ -22,6 +22,9 @@
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="/plugins/iCheck/all.css">
 
+<!-- DataTables -->
+<link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

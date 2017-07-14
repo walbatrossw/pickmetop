@@ -5,10 +5,12 @@ import com.cafe24.pickmetop.user.service.UserService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -50,9 +52,21 @@ public class UserController {
         return userService.duplicatedNameCheck(name);
     }
 
+    /*회원 목록 : list()*/
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String list(Model model) {
+        List<User> users = userService.list();
+        model.addAttribute("users", users);
+        return "/user/list";
+    }
 
 
     /*회원 정보 상세조회 : view()*/
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    public String view(@RequestParam Long id, Model model) {
+
+        return "/user/view";
+    }
 
     /*회원 정보 수정 POST : update()*/
 
@@ -81,12 +95,12 @@ public class UserController {
     }
 
     /*로그아웃 : logout()*/
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView logout(HttpSession session) {
         userService.logout(session);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/user/login");
         mav.addObject("msg", "logout");
+        mav.setViewName("/user/login");
         return mav;
     }
 
