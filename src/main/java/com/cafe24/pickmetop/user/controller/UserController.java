@@ -67,6 +67,8 @@ public class UserController {
         return "/user/view";
     }
 
+    /*회원 정보 수정 GET : update()*/
+
     /*회원 정보 수정 POST : update()*/
 
     /*회원 삭제, 탈퇴 : delete()*/
