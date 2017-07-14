@@ -60,11 +60,10 @@ public class UserController {
         return "/user/list";
     }
 
-
     /*회원 정보 상세조회 : view()*/
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(@RequestParam Long id, Model model) {
-
+        model.addAttribute("user", userService.findOneById(id));
         return "/user/view";
     }
 

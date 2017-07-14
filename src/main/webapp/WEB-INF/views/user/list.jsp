@@ -51,7 +51,7 @@
                                 <c:forEach var="row" items="${users}">
                                     <tr>
                                         <td>${row.id}</td>
-                                        <td>${row.email}</td>
+                                        <td><a href="${path}/user/view?id=${row.id}">${row.email}</a></td>
                                         <td>${row.name}</td>
                                         <td><fmt:formatDate value="${row.createDate}"
                                                             pattern="yyyy-MM-dd a HH:mm:ss"/></td>

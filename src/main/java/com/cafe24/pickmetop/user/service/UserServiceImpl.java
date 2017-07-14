@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService{
     /*회원 정보 상세조회 : findOneById()*/
     @Override
     public User findOneById(Long id) {
-        return null;
+        return userDao.findOneById(id);
     }
 
     /*회원 정보 수정 POST : update()*/
