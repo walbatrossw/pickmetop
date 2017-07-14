@@ -75,8 +75,7 @@ public class UserController {
             session.setAttribute("id", loginUser.getId()); // 회원 번호(기본키)
             session.setAttribute("email", loginUser.getEmail()); // 회원 이메일(아이디)
             session.setAttribute("name", loginUser.getName()); // 회원 이름
-            mav.setViewName("/main");
-            mav.addObject("msg", "success");
+            mav.setViewName("redirect:/main");
             return mav;
         }
         mav.addObject("msg", "failure");

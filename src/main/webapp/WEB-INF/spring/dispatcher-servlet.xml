@@ -35,5 +35,12 @@
 
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
+    <beans:bean id="loginPageInterceptor" class="com.cafe24.pickmetop.utils.interceptors.loginPageInterceptor"/>
+    <interceptors>
+        <interceptor>
+            <mapping path="/user/login"/>
+            <beans:ref bean="loginPageInterceptor"/>
+        </interceptor>
+    </interceptors>
 
 </beans:beans>
