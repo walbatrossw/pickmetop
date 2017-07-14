@@ -32,10 +32,7 @@ public interface UserService {
     boolean checkPassword(String email, String password);
 
     /*로그인 POST : login()*/
-    User login(User user, HttpSession session);
-
-    /*로그인 회원 정보조회 : loginUser()*/
-    User loginUser(User user);
+    boolean login(User user, HttpSession session);
 
     /*로그아웃 : logout()*/
     void logout(HttpSession session);

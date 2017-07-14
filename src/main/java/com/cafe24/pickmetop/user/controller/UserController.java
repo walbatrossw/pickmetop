@@ -69,12 +69,9 @@ public class UserController {
     /*로그인 POST : login()*/
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute User user, HttpSession session) {
-        User loginUser = userService.login(user, session);
+        boolean result = userService.login(user, session);
         ModelAndView mav = new ModelAndView();
-        if (loginUser != null && BCrypt.checkpw(user.getPassword(), loginUser.getPassword())) {
-            session.setAttribute("id", loginUser.getId()); // 회원 번호(기본키)
-            session.setAttribute("email", loginUser.getEmail()); // 회원 이메일(아이디)
-            session.setAttribute("name", loginUser.getName()); // 회원 이름
+        if (result) {
             mav.setViewName("redirect:/main");
             return mav;
         }
@@ -84,6 +81,14 @@ public class UserController {
     }
 
     /*로그아웃 : logout()*/
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public ModelAndView logout(HttpSession session) {
+        userService.logout(session);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/user/login");
+        mav.addObject("msg", "logout");
+        return mav;
+    }
 
 
 }

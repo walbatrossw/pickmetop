@@ -34,9 +34,4 @@ public interface UserDao {
     /*로그인 POST : login()*/
     User login(User user);
 
-    /*로그인 회원 정보조회 : loginUser()*/
-    User loginUser(User user);
-
-    /*로그아웃 : logout()*/
-    void logout(HttpSession session);
 }

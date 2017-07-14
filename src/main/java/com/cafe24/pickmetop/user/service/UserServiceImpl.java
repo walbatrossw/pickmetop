@@ -65,19 +65,20 @@ public class UserServiceImpl implements UserService{
 
     /*로그인 POST : login()*/
     @Override
-    public User login(User user, HttpSession session) {
-        return userDao.login(user);
-    }
-
-    /*로그인 회원 정보조회 : loginUser()*/
-    @Override
-    public User loginUser(User user) {
-        return userDao.loginUser(user);
+    public boolean login(User user, HttpSession session) {
+        User loginUser = userDao.login(user);
+        if (loginUser != null && BCrypt.checkpw(user.getPassword(), loginUser.getPassword())) {
+            session.setAttribute("id", loginUser.getId()); // 회원 번호(기본키)
+            session.setAttribute("email", loginUser.getEmail()); // 회원 이메일(아이디)
+            session.setAttribute("name", loginUser.getName()); // 회원 이름
+            return true;
+        }
+        return false;
     }
 
     /*로그아웃 : logout()*/
     @Override
     public void logout(HttpSession session) {
-
+        session.invalidate();
     }
 }

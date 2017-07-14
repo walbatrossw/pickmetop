@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -70,15 +69,4 @@ public class UserDaoImpl implements UserDao {
         return sqlSession.selectOne("user.login", user);
     }
 
-    /*로그인 회원 정보조회 : loginUser()*/
-    @Override
-    public User loginUser(User user) {
-        return sqlSession.selectOne("user.loginUser", user);
-    }
-
-    /*로그아웃 : logout()*/
-    @Override
-    public void logout(HttpSession session) {
-
-    }
 }

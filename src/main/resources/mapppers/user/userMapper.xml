@@ -87,16 +87,4 @@
         WHERE EMAIL = #{email}
     </select>
 
-    <!--로그인된 회원 정보조회-->
-    <select id="loginUser" resultType="com.cafe24.pickmetop.user.domain.User">
-        SELECT
-            ID
-          , EMAIL
-          , NAME
-          , PASSWORD
-          , CREATE_DATE
-          , MODIFIED_DATE
-        FROM tb_user
-        WHERE EMAIL = #{email}
-    </select>
 </mapper>
