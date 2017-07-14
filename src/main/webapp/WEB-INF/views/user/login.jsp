@@ -12,15 +12,29 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">P1ck ME와 함께 취업 성공해봐요!</p>
-        <div>
-            <c:if test="${msg == 'welcome'}">
-                <div style="color: red">
-                    회원가입이 완료되었습니다.<br/>
-                    환영합니다! 로그인해주세요.
-                </div>
-            </c:if>
-        </div>
         <form action="${path}/user/login" method="post">
+            <div class="form-group" align="center">
+                <c:if test="${msg == 'welcome'}">
+                        <span style="color: red">
+                            환영합니다!!! 회원가입이 완료되었습니다. 로그인해주세요.
+                        </span>
+                </c:if>
+                <c:if test="${msg == 'failure'}">
+                        <span style="color: red">
+                            아이디 또는 비밀번호가 일치하지 않습니다.
+                        </span>
+                </c:if>
+                <c:if test="${param.msg == 'nologin'}">
+                        <span style="color: red">
+                            로그인 유저만 사용이 가능합니다. 로그인해주세요
+                        </span>
+                </c:if>
+                <c:if test="${msg == 'logout'}">
+                        <span style="color: red">
+                            로그아웃되었습니다.
+                        </span>
+                </c:if>
+            </div>
             <div class="form-group has-feedback">
                 <input type="email" class="form-control" name="email" placeholder="이메일">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -40,23 +54,6 @@
                 <!-- /.col -->
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
-                </div>
-                <div class="col-xs-8">
-                    <c:if test="${msg == 'failure'}">
-                        <div style="color: red">
-                            아이디 또는 비밀번호가 일치하지 않습니다.
-                        </div>
-                    </c:if>
-                    <c:if test="${param.msg == 'nologin'}">
-                        <div style="color: red">
-                            로그인 후 사용이 가능합니다.
-                        </div>
-                    </c:if>
-                    <c:if test="${msg == 'logout'}">
-                        <div style="color: red">
-                            로그아웃되었습니다.
-                        </div>
-                    </c:if>
                 </div>
                 <!-- /.col -->
             </div>
@@ -78,7 +75,11 @@
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-
 <%@ include file="../include/footer.jsp" %>
+<script>
+    $(function () {
+
+    })
+</script>
 </body>
 </html>

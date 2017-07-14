@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> P!ck ME | MAIN </title>
+    <title> P!ck ME | INDEX </title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- Custom CSS -->
@@ -53,8 +54,8 @@
         <h1> P!ck ME </h1>
         <h3>취업 성공의 지름길!!!</h3>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg">관리자 페이지</a>
-        <a href="#about" class="btn btn-dark btn-lg">사용자 페이지</a>
+        <a href="${path}/admin/login" class="btn btn-dark btn-lg">관리자 페이지</a>
+        <a href="${path}/user/login" class="btn btn-dark btn-lg">사용자 페이지</a>
     </div>
 </header>
 
@@ -80,7 +81,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-10 col-lg-offset-1">
-                <h2>Our Services</h2>
+                <h2>P!ck Services</h2>
                 <hr class="small">
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
@@ -90,7 +91,7 @@
                                 <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             </span>
                             <h4>
-                                <strong>Service Name</strong>
+                                <strong>이력서 작성</strong>
                             </h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <a href="#" class="btn btn-light">Learn More</a>
@@ -103,7 +104,7 @@
                                 <i class="fa fa-compass fa-stack-1x text-primary"></i>
                             </span>
                             <h4>
-                                <strong>Service Name</strong>
+                                <strong>자기소개서</strong>
                             </h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <a href="#" class="btn btn-light">Learn More</a>
@@ -116,7 +117,7 @@
                                 <i class="fa fa-flask fa-stack-1x text-primary"></i>
                             </span>
                             <h4>
-                                <strong>Service Name</strong>
+                                <strong>채용달력</strong>
                             </h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <a href="#" class="btn btn-light">Learn More</a>
@@ -129,7 +130,7 @@
                                 <i class="fa fa-shield fa-stack-1x text-primary"></i>
                             </span>
                             <h4>
-                                <strong>Service Name</strong>
+                                <strong>채용정보 공유</strong>
                             </h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <a href="#" class="btn btn-light">Learn More</a>
@@ -145,19 +146,13 @@
     <!-- /.container -->
 </section>
 
-<!-- Callout -->
-<aside class="callout">
-    <div class="text-vertical-center">
-        <h1>Vertically Centered Text</h1>
-    </div>
-</aside>
 
 <!-- Portfolio -->
 <section id="portfolio" class="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h2>Our Work</h2>
+                <h2>미리보기</h2>
                 <hr class="small">
                 <div class="row">
                     <div class="col-md-6">
@@ -212,28 +207,20 @@
     </div>
 </aside>
 
-<!-- Map -->
-<section id="contact" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-            src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-    <br/>
-    <small>
-        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-    </small>
-</section>
-
 <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h4><strong>Start Bootstrap</strong>
+                <h4><strong>P!ck ME</strong>
                 </h4>
-                <p>3481 Melrose Place
-                    <br>Beverly Hills, CA 90210</p>
+                <p>
+                    주소지 : XXXXX <br>
+                    XXXX, XXXX
+                </p>
                 <ul class="list-unstyled">
-                    <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+                    <li><i class="fa fa-phone fa-fw"></i> 010 - 4254 - 3749</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">walbatrossw@gmail.com</a>
                     </li>
                 </ul>
                 <br>
@@ -249,7 +236,7 @@
                     </li>
                 </ul>
                 <hr class="small">
-                <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                <p class="text-muted">Copyright &copy; Since 2016-2017 P!ck ME</p>
             </div>
         </div>
     </div>
