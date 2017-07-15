@@ -1,59 +1,57 @@
-package com.cafe24.pickmetop.user.repository;
+package com.cafe24.pickmetop.admin.repository;
 
-import com.cafe24.pickmetop.user.domain.User;
+import com.cafe24.pickmetop.admin.domain.Admin;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 @Repository
-public class UserDaoImpl implements UserDao {
+public class AdminDaoImpl implements AdminDao {
 
     @Autowired
     SqlSession sqlSession;
 
     /*회원가입 POST : create()*/
     @Override
-    public void create(User user) {
-        sqlSession.insert("user.createUser", user);
+    public void create(Admin admin) {
+        sqlSession.insert("admin.createAdmin", admin);
     }
 
-    /*회원 이메일 주소 중복 확인*/
+    /*회원 이메일 중복 확인*/
     @Override
     public int findOneByEmail(String email) {
-        return sqlSession.selectOne("user.findOneByEmail", email);
+        return sqlSession.selectOne("admin.findOneByEmail", email);
     }
 
     /*회원 이름 중복 확인*/
     @Override
     public int findOneByName(String name) {
-        return sqlSession.selectOne("user.findOneByName", name);
+        return sqlSession.selectOne("admin.findOneByName", name);
     }
 
     /*회원 목록 : list()*/
     @Override
-    public List<User> list() {
-        return sqlSession.selectList("user.list");
+    public List<Admin> list() {
+        return sqlSession.selectList("admin.list");
     }
 
     /*회원 정보 상세조회 : findOneById()*/
     @Override
-    public User findOneById(Long id) {
-        return sqlSession.selectOne("user.userFindOneById", id);
+    public Admin findOneById(Long id) {
+        return null;
     }
 
     /*회원 정보 수정 POST : update()*/
     @Override
-    public void update(User user) {
+    public void update(Admin admin) {
 
     }
 
     /*회원 삭제, 탈퇴 : delete()*/
     @Override
-    public void delete(User user) {
+    public void delete(Admin admin) {
 
     }
 
@@ -65,8 +63,7 @@ public class UserDaoImpl implements UserDao {
 
     /*로그인 POST : login()*/
     @Override
-    public User login(User user) {
-        return sqlSession.selectOne("user.login", user);
+    public Admin login(Admin admin) {
+        return sqlSession.selectOne("admin.login", admin);
     }
-
 }

@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserDao userDao;
 
-    /*회원가입 POST : register()*/
+    /*회원가입 POST : create()*/
     @Override
     public void create(User user) {
         userDao.create(user);
@@ -23,14 +23,14 @@ public class UserServiceImpl implements UserService{
 
     /*회원 이메일 중복확인*/
     @Override
-    public int duplicatedEmailCheck(String email) {
-        return userDao.duplicatedEmailCheck(email);
+    public int findOneByEmail(String email) {
+        return userDao.findOneByEmail(email);
     }
 
     /*회원 이름 중복확인*/
     @Override
-    public int duplicatedNameCheck(String name) {
-        return userDao.duplicatedNameCheck(name);
+    public int findOneByName(String name) {
+        return userDao.findOneByName(name);
     }
 
     /*회원 목록 : list()*/

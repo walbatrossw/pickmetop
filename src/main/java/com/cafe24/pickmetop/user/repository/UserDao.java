@@ -11,10 +11,10 @@ public interface UserDao {
     void create(User user);
 
     /*회원 이메일 중복 확인*/
-    int duplicatedEmailCheck(String email);
+    int findOneByEmail(String email);
 
     /*회원 이름 중복 확인*/
-    int duplicatedNameCheck(String name);
+    int findOneByName(String name);
 
     /*회원 목록 : list()*/
     List<User> list();

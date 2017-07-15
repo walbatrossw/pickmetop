@@ -12,7 +12,7 @@ public class loginPageInterceptor extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        if (session.getAttribute("id") != null) {
+        if (session.getAttribute("id") != null || session.getAttribute("adminId") != null) {
             response.sendRedirect(request.getContextPath()+"/main");
             return false;
         }

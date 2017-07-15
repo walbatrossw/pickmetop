@@ -12,21 +12,36 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">P!ck ME 관리자 로그인페이지</p>
-        <div>
-            <c:if test="${msg == 'welcome'}">
-                <div style="color: red">
-                    관리자 회원가입이 완료되었습니다.
-                    로그인해주세요.
-                </div>
-            </c:if>
-        </div>
         <form action="${path}/admin/login" method="post">
+            <div class="form-group" align="center">
+                <c:if test="${msg == 'welcome'}">
+                    <div style="color: red">
+                        관리자 회원가입이 완료되었습니다.<br/>
+                        로그인해주세요.
+                    </div>
+                </c:if>
+                <c:if test="${msg == 'failure'}">
+                    <div style="color: red">
+                        아이디 또는 비밀번호가 일치하지 않습니다.
+                    </div>
+                </c:if>
+                <c:if test="${param.msg == 'nologin'}">
+                    <div style="color: red">
+                        로그인 후 사용이 가능합니다.
+                    </div>
+                </c:if>
+                <c:if test="${msg == 'logout'}">
+                    <div style="color: red">
+                        로그아웃되었습니다.
+                    </div>
+                </c:if>
+            </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" name="email" placeholder="이메일">
+                <input type="email" class="form-control" name="email" placeholder="이메일" value="walbatrossw@gmail.com">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" name="password" placeholder="비밀번호">
+                <input type="password" class="form-control" name="password" placeholder="비밀번호" value="qazwsx12!">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -42,21 +57,7 @@
                     <button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
                 </div>
                 <div class="col-xs-8">
-                    <c:if test="${msg == 'failure'}">
-                        <div style="color: red">
-                            아이디 또는 비밀번호가 일치하지 않습니다.
-                        </div>
-                    </c:if>
-                    <c:if test="${param.msg == 'nologin'}">
-                        <div style="color: red">
-                            로그인 후 사용이 가능합니다.
-                        </div>
-                    </c:if>
-                    <c:if test="${msg == 'logout'}">
-                        <div style="color: red">
-                            로그아웃되었습니다.
-                        </div>
-                    </c:if>
+
                 </div>
                 <!-- /.col -->
             </div>

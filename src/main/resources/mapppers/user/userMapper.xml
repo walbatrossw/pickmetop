@@ -11,7 +11,7 @@
     </insert>
 
     <!--회원 이메일 주소 중복확인-->
-    <select id="duplicatedEmailCheck" resultType="int">
+    <select id="findOneByEmail" resultType="int">
         SELECT
             COUNT(*)
         FROM tb_user
@@ -19,7 +19,7 @@
     </select>
 
     <!--회원 이름 중복확인-->
-    <select id="duplicatedNameCheck" resultType="int">
+    <select id="findOneByName" resultType="int">
         SELECT
         COUNT(*)
         FROM tb_user

@@ -81,15 +81,16 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myInfoModal">
-                                    수정
-                                </button>
-                            </div>
+                            <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myInfoUpdateModal">
+                                가입정보 수정
+                            </button>
+                            <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#myPwUpdateModal">
+                                비밀번호 수정
+                            </button>
                         </div>
                         <!-- /.box-footer -->
 
-                        <div class="modal fade" id="myInfoModal" tabindex="-1" role="dialog" aria-labelledby="myInfoModalLabel">
+                        <div class="modal fade" id="myInfoUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myInfoModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -119,12 +120,12 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <c:if test="${msg == 'failure'}">
-                                            <div style="color: red">
+                                        <%--<c:if test="${msg == 'failure'}">--%>
+                                            <div class="form-group" style="color: red">
                                                 비밀번호가 일치하지 않습니다.
                                             </div>
-                                        </c:if>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                                        <%--</c:if>--%>
+                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">닫기</button>
                                         <button type="button" class="btn btn-primary" id="updateInfoBtn">저장하기</button>
                                     </div>
                                 </div>

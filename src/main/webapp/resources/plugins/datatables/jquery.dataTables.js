@@ -11394,7 +11394,7 @@
 			 *    } );
 			 */
 			"sSearch": "Search:",
-	
+
 	
 			/**
 			 * Assign a `placeholder` attribute to the search `input` element

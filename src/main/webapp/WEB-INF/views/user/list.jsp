@@ -33,7 +33,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <h3 class="box-title">회원 리스트</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -44,7 +44,8 @@
                                     <th>회원아이디</th>
                                     <th>이름</th>
                                     <th>가입일자</th>
-                                    <th>정보수정일자</th>
+                                    <th>수정일자</th>
+                                    <th>수정/삭제</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -53,22 +54,16 @@
                                         <td>${row.id}</td>
                                         <td><a href="${path}/user/view?id=${row.id}">${row.email}</a></td>
                                         <td>${row.name}</td>
-                                        <td><fmt:formatDate value="${row.createDate}"
-                                                            pattern="yyyy-MM-dd a HH:mm:ss"/></td>
-                                        <td><fmt:formatDate value="${row.modifiedDate}"
-                                                            pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${row.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${row.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td>
+                                            <input type="button" class="btn btn-primary" value="수정">
+                                            <input type="button" class="btn btn-danger" value="삭제">
+                                        </td>
+
                                     </tr>
                                 </c:forEach>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>회원번호</th>
-                                    <th>회원아이디</th>
-                                    <th>이름</th>
-                                    <th>가입일자</th>
-                                    <th>정보수정일자</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->
@@ -78,7 +73,6 @@
                 <!-- /.col -->
             </div>
             <!-- /.row (main row) -->
-
         </section>
         <!-- /.content -->
     </div>

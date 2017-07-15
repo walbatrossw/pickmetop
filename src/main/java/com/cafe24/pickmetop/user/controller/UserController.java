@@ -42,14 +42,14 @@ public class UserController {
     @RequestMapping(value = "/duplicated/email", method = RequestMethod.POST)
     @ResponseBody
     public int duplicatedEmailCheck(@RequestParam String email) {
-        return userService.duplicatedEmailCheck(email);
+        return userService.findOneByEmail(email);
     }
 
     /*회원 이름 중복확인*/
     @RequestMapping(value = "/duplicated/name", method = RequestMethod.POST)
     @ResponseBody
     public int duplicatedNameCheck(@RequestParam String name) {
-        return userService.duplicatedNameCheck(name);
+        return userService.findOneByName(name);
     }
 
     /*회원 목록 : list()*/

@@ -40,6 +40,8 @@
         <interceptor>
             <mapping path="/user/login"/>
             <mapping path="/user/register"/>
+            <mapping path="/admin/login"/>
+            <mapping path="/admin/register"/>
             <beans:ref bean="loginPageInterceptor"/>
         </interceptor>
     </interceptors>

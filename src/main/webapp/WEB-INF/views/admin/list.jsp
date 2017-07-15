@@ -30,14 +30,49 @@
         <section class="content">
             <!-- Main row -->
             <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">관리자 리스트</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>관리자 번호</th>
+                                    <th>관리자 아이디</th>
+                                    <th>관리자 이름</th>
+                                    <th>가입일자</th>
+                                    <th>수정일자</th>
+                                    <th>수정/삭제</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="row" items="${admins}">
+                                    <tr>
+                                        <td>${row.id}</td>
+                                        <td><a href="${path}/user/view?id=${row.id}">${row.email}</a></td>
+                                        <td>${row.name}</td>
+                                        <td><fmt:formatDate value="${row.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${row.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td>
+                                            <input type="button" class="btn btn-primary" value="수정">
+                                            <input type="button" class="btn btn-danger" value="삭제">
+                                        </td>
 
-                <section class="col-lg-12">
-                    관리자 리스트페이지...
-                </section>
-
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
             </div>
             <!-- /.row (main row) -->
-
         </section>
         <!-- /.content -->
     </div>
