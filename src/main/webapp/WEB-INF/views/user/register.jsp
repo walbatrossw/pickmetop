@@ -90,12 +90,11 @@
                 var email = $("#email").serialize();
                 $.ajax({
                     type: "post",
-                    url: "/user/duplicated/email",
+                    url: "${path}/user/duplicated/email",
                     dataType: "text",
                     data: email,
                     success: function (data) {
                         if (data == 1) {
-                            console.log(data);
                             $("#invalidText").text("중복된 이메일 주소입니다.");
                             $("input[type=text]").attr("disabled", "");
                             $("input[type=password]").attr("disabled", "");
@@ -112,7 +111,7 @@
                 var name = $("#name").serialize();
                 $.ajax({
                     type: "post",
-                    url: "/user/duplicated/name",
+                    url: "${path}/user/duplicated/name",
                     dataType: "text",
                     data: name,
                     success: function (data) {
@@ -131,30 +130,27 @@
             // 회원가입 버튼 클릭시 유효성검사
             $("#regBtn").on("click", function () {
                 var email = $("#email");
-                var emailValue = email.val();
                 var name = $("#name");
                 var password = $("#password");
-                var passwordValue = password.val();
                 var passwordCheck = $("#passwordCheck");
-                var passwordCheckValue = $("#passwordCheck").val();
                 var userTerms = $("#userTerms");
                 var invalidText = $("#invalidText");
                 var emailRegx = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
                 var passwordRegx = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 
-                if ( emailValue === "" || !emailRegx.test(emailValue) ) {
+                if ( email.val() === "" || !emailRegx.test(email.val()) ) {
                     invalidText.text("이메일주소를 확인해주세요!");
                     email.focus();
                 } else if (name.val() === "") {
                     invalidText.text("이름을 확인해주세요!");
                     name.focus();
-                } else if ( passwordValue === "" || !passwordRegx.test(passwordValue) ) {
+                } else if ( password.val() === "" || !passwordRegx.test(password.val()) ) {
                     invalidText.text("특수문자/문자/숫자 포함 8~15자리의 비밀번호!!!");
                     password.focus();
                 } else if ( passwordCheck === "" ) {
                     invalidText.text("비밀번호를 확인해주세요!");
                     passwordCheck.focus();
-                } else if ( passwordValue !== passwordCheckValue ) {
+                } else if ( password.val() !== $("#passwordCheck").val() ) {
                     invalidText.text("비밀번호가 일치하지 않습니다!");
                     passwordCheck.focus();
                 } else if ( !userTerms.is(":checked") ) {

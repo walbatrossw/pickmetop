@@ -53,7 +53,7 @@
                                     <tr>
                                         <td>${row.id}</td>
                                         <td><a href="${path}/user/view?id=${row.id}">${row.email}</a></td>
-                                        <td>${row.name}</td>
+                                        <td>${row.adminName}</td>
                                         <td><fmt:formatDate value="${row.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td><fmt:formatDate value="${row.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td>

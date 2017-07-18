@@ -2,15 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="../include/header.jsp" %>
+    <%@ include file="../../include/header.jsp" %>
 </head>
 <body class="fixed skin-blue-light sidebar-mini">
 <div class="wrapper">
 
-    <%@ include file="../include/main_header.jsp" %>
+    <%@ include file="../../include/main_header.jsp" %>
 
     <!-- Left side column. contains the logo and sidebar -->
-    <%@ include file="../include/main_sidebar.jsp" %>
+    <%@ include file="../../include/main_sidebar.jsp" %>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -40,29 +40,29 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>회원번호</th>
-                                    <th>회원아이디</th>
-                                    <th>이름</th>
-                                    <th>가입일자</th>
+                                    <th>기업번호</th>
+                                    <th>기업명</th>
+                                    <th>업종소분류</th>
+                                    <th>기업규모</th>
+                                    <th>매출액(단위:백만원)</th>
+                                    <th>작성일자</th>
                                     <th>수정일자</th>
-                                    <th>수정/삭제</th>
+                                    <th>작성자</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="i" items="${users}">
+                                    <c:forEach var="i" items="${companies}">
                                     <tr>
                                         <td>${i.id}</td>
-                                        <td><a href="${path}/user/view?id=${i.id}">${i.email}</a></td>
-                                        <td>${i.name}</td>
-                                        <td><fmt:formatDate value="${i.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
-                                        <td><fmt:formatDate value="${i.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
-                                        <td>
-                                            <input type="button" class="btn btn-primary" value="수정">
-                                            <input type="button" class="btn btn-danger" value="삭제">
-                                        </td>
-
+                                        <td>${i.companyName}</td>
+                                        <td>${i.industryIdx2.industryIdx2Name}</td>
+                                        <td>${i.companyType}</td>
+                                        <td align="right"><fmt:formatNumber value="${i.totalSales}" type="number"/></td>
+                                        <td>${i.createDate}</td>
+                                        <td>${i.modifiedDate}</td>
+                                        <td>${i.admin.adminName}</td>
                                     </tr>
-                                </c:forEach>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -78,14 +78,14 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <%@ include file="../include/main_footer.jsp" %>
+    <%@ include file="../../include/main_footer.jsp" %>
 
     <!-- Control Sidebar -->
-    <%@ include file="../include/control_sidebar.jsp" %>
+    <%@ include file="../../include/control_sidebar.jsp" %>
     <!-- /.control-sidebar -->
 
 </div>
 <!-- ./wrapper -->
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../../include/footer.jsp" %>
 </body>
 </html>

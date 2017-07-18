@@ -5,48 +5,55 @@
     <!--관리자 가입-->
     <insert id="createAdmin">
         INSERT INTO
-        tb_admin ( EMAIL, PASSWORD, NAME, CREATE_DATE, MODIFIED_DATE )
+            tb_admin (EMAIL, PASSWORD, ADMIN_NAME, CREATE_DATE, MODIFIED_DATE)
         VALUES
-        ( #{email}, #{password}, #{name}, now(), now() )
+            (#{email}, #{password}, #{adminName}, now(), now())
     </insert>
 
     <!--관리자 이메일 주소 중복확인-->
     <select id="findOneByEmail" resultType="int">
-        SELECT
-          COUNT(*)
+        SELECT COUNT(*)
         FROM tb_admin
         WHERE EMAIL = #{email}
     </select>
 
     <!--관리자 이름 중복확인-->
     <select id="findOneByName" resultType="int">
-        SELECT
-          COUNT(*)
+        SELECT COUNT(*)
         FROM tb_admin
-        WHERE NAME = #{name}
+        WHERE ADMIN_NAME = #{adminName}
     </select>
 
     <!--관리자 리스트-->
-    <select id="list" resultType="com.cafe24.pickmetop.admin.domain.Admin">
+    <select id="list" resultMap="adminResultMap">
         SELECT
-        ID AS id
-        , EMAIL AS email
-        , NAME AS name
-        , CREATE_DATE AS createDate
-        , MODIFIED_DATE AS modifiedDate
+            ID,
+            EMAIL,
+            ADMIN_NAME,
+            CREATE_DATE,
+            MODIFIED_DATE
         FROM tb_admin
     </select>
 
     <!--관리자 로그인-->
-    <select id="login" resultType="com.cafe24.pickmetop.admin.domain.Admin">
+    <select id="login" resultMap="adminResultMap">
         SELECT
-        ID
-        , EMAIL
-        , NAME
-        , PASSWORD
-        , CREATE_DATE
-        , MODIFIED_DATE
+            ID,
+            EMAIL,
+            ADMIN_NAME,
+            PASSWORD,
+            CREATE_DATE,
+            MODIFIED_DATE
         FROM tb_admin
         WHERE EMAIL = #{email}
     </select>
+
+    <resultMap id="adminResultMap" type="Admin">
+        <id column="id" property="id"/>
+        <result column="EMAIL" property="email"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="ADMIN_NAME" property="adminName"/>
+        <result column="CREATE_DATE" property="createDate"/>
+        <result column="MODIFIED_DATE" property="modifiedDate"/>
+    </resultMap>
 </mapper>

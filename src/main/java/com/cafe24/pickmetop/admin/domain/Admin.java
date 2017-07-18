@@ -6,7 +6,7 @@ public class Admin {
     private Long id;
     private String email;
     private String password;
-    private String name;
+    private String adminName;
     private Date createDate;
     private Date modifiedDate;
 
@@ -34,12 +34,12 @@ public class Admin {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getAdminName() {
+        return adminName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
 
     public Date getCreateDate() {
@@ -64,7 +64,7 @@ public class Admin {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
+                ", adminName='" + adminName + '\'' +
                 ", createDate=" + createDate +
                 ", modifiedDate=" + modifiedDate +
                 '}';

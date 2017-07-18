@@ -70,7 +70,7 @@ public class AdminServiceImpl implements  AdminService {
         if (loginAdmin != null && BCrypt.checkpw(admin.getPassword(), loginAdmin.getPassword())) {
             session.setAttribute("adminId", loginAdmin.getId()); // 관리자 번호(기본키)
             session.setAttribute("adminEmail", loginAdmin.getEmail()); // 관리자 이메일(아이디)
-            session.setAttribute("adminName", loginAdmin.getName()); // 관리자 이름
+            session.setAttribute("adminName", loginAdmin.getAdminName()); // 관리자 이름
             return true;
         }
         return false;

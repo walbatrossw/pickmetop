@@ -19,7 +19,7 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" id="name" name="name" placeholder="이름(닉네임)">
+                <input type="text" class="form-control" id="name" name="adminName" placeholder="이름(닉네임)">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -97,7 +97,7 @@
         $("#regBtn").on("click", function () {
             var email = $("#email");
             var emailValue = email.val();
-            var name = $("#name");
+            var adminName = $("#adminName");
             var password = $("#password");
             var passwordValue = password.val();
             var passwordCheck = $("#passwordCheck");
@@ -109,9 +109,9 @@
             if ( emailValue === "" || !emailRegx.test(emailValue) ) {
                 invalidText.text("이메일주소를 확인해주세요!");
                 email.focus();
-            } else if (name.val() === "") {
+            } else if (adminName.val() === "") {
                 invalidText.text("이름을 확인해주세요!");
-                name.focus();
+                adminName.focus();
             } else if ( passwordValue === "" || !passwordRegx.test(passwordValue) ) {
                 invalidText.text("특수문자/문자/숫자 포함 8~15자리의 비밀번호!!!");
                 password.focus();

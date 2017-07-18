@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="company">
+    <select id="industryIndex1" resultMap="industryIdx1ResultMap">
+        SELECT
+            ID,
+            INDUSTRY_IDX1_NAME
+        FROM tb_industry_idx1
+    </select>
+
+    <select id="findListById" resultMap="industryIdx2ResultMap">
+        SELECT
+            ID,
+            INDUSTRY_IDX1_ID,
+            INDUSTRY_IDX2_NAME
+        FROM tb_industry_idx2
+        WHERE INDUSTRY_IDX1_ID = #{index1Id}
+    </select>
+
+    <insert id="crateCompany">
+        INSERT INTO tb_company_info (
+            INDUSTRY_IDX2_ID,
+            COMPANY_TYPE,
+            COMPANY_NAME,
+            HOMEPAGE,
+            BIRTH_DATE,
+            CEO,
+            ADDRESS,
+            PHONE,
+            TOTAL_SALES,
+            CREATE_DATE,
+            MODIFIED_DATE,
+            WRITER_ID
+        ) VALUES (
+            #{industryIdx2Id},
+            #{companyType},
+            #{companyName},
+            #{homePage},
+            #{birthDate},
+            #{ceo},
+            #{address},
+            #{phone},
+            #{totalSales},
+            NOW(),
+            NOW(),
+            #{writerId}
+        )
+    </insert>
+
+    <select id="list" resultMap="companyResultMap">
+        SELECT
+            CPY.ID,
+            IDX2.INDUSTRY_IDX2_NAME,
+            CPY.COMPANY_NAME,
+            CPY.COMPANY_TYPE,
+            CPY.TOTAL_SALES,
+            CPY.CREATE_DATE,
+            CPY.MODIFIED_DATE,
+            ADMIN.ADMIN_NAME
+        FROM
+            tb_company_info AS CPY,
+            tb_industry_idx2 AS IDX2,
+            tb_admin AS ADMIN
+        WHERE
+            CPY.INDUSTRY_IDX2_ID = IDX2.ID
+            AND ADMIN.ID = CPY.WRITER_ID
+    </select>
+
+    <resultMap id="companyResultMap" type="Company">
+        <id column="ID" property="id"/>
+        <result column="INDUSTRY_IDX2_ID" property="industryIdx2Id"/>
+        <result column="COMPANY_TYPE" property="companyType"/>
+        <result column="COMPANY_NAME" property="companyName"/>
+        <result column="HOMEPAGE" property="homePage"/>
+        <result column="BIRTH_DATE" property="birthDate" javaType="java.sql.Date"/>
+        <result column="CEO" property="ceo"/>
+        <result column="ADDRESS" property="address"/>
+        <result column="PHONE" property="phone"/>
+        <result column="TOTAL_SALES" property="totalSales" javaType="java.lang.Long"/>
+        <result column="CREATE_DATE" property="createDate" javaType="java.sql.Timestamp"/>
+        <result column="MODIFIED_DATE" property="modifiedDate" javaType="java.sql.Timestamp"/>
+        <result column="WRITER_ID" property="writerId"/>
+        <association property="admin" resultMap="adminResultMap"/>
+        <association property="industryIdx2" resultMap="industryIdx2ResultMap"/>
+    </resultMap>
+
+    <resultMap id="adminResultMap" type="Admin">
+        <id column="id" property="id"/>
+        <result column="EMAIL" property="email"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="ADMIN_NAME" property="adminName"/>
+        <result column="CREATE_DATE" property="createDate" javaType="java.sql.Date"/>
+        <result column="MODIFIED_DATE" property="modifiedDate" javaType="java.sql.Date"/>
+    </resultMap>
+
+    <resultMap id="industryIdx1ResultMap" type="IndustryIdx1">
+        <id column="ID" property="id"/>
+        <result column="INDUSTRY_IDX1_NAME" property="industryIdx1Name"/>
+    </resultMap>
+
+    <resultMap id="industryIdx2ResultMap" type="IndustryIdx2">
+        <id column="ID" property="id"/>
+        <result column="INDUSTRY_IDX1_ID" property="industryIdx1Id"/>
+        <result column="INDUSTRY_IDX2_NAME" property="industryIdx2Name"/>
+    </resultMap>
+</mapper>

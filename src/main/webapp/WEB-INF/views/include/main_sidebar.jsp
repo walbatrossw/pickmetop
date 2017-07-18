@@ -78,21 +78,6 @@
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-briefcase"></i>
-                            <span>채용 관리</span>
-                            <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${path}/recruit/create"><i class="fa fa-pencil"></i> 채용등록</a></li>
-                            <li><a href="${path}/recruit/list"><i class="fa fa-list"></i> 채용목록</a></li>
-                            <li><a href="${path}/recruit/update"><i class="fa fa-list"></i> 채용목록</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
                             <i class="fa fa-industry"></i>
                             <span>기업 정보관리</span>
                             <span class="pull-right-container">
@@ -102,9 +87,25 @@
                         <ul class="treeview-menu">
                             <li><a href="${path}/company/info/create"><i class="fa fa-pencil"></i> 기업정보 등록</a></li>
                             <li><a href="${path}/company/info/list"><i class="fa fa-list"></i> 기업정보 목록</a></li>
-                            <li><a href="${path}/company/info/update"><i class="fa fa-list"></i> 기업정보 수정</a></li>
+                            <li><a href="${path}/company/info/update"><i class="fa fa-pencil-square-o"></i> 기업정보 수정</a></li>
                         </ul>
                     </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-briefcase"></i>
+                            <span>채용 관리</span>
+                            <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="${path}/recruit/create"><i class="fa fa-pencil"></i> 채용 등록</a></li>
+                            <li><a href="${path}/recruit/list"><i class="fa fa-list"></i> 채용 목록</a></li>
+                            <li><a href="${path}/recruit/update"><i class="fa fa-pencil-square-o"></i> 채용 수정</a></li>
+                        </ul>
+                    </li>
+
                     <li class="header">메뉴</li>
                     <li class="treeview">
                         <a href="#">

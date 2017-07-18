@@ -5,6 +5,11 @@
 <configuration>
 
     <typeAliases>
+        <typeAlias type="com.cafe24.pickmetop.user.domain.User" alias="User"/>
+        <typeAlias type="com.cafe24.pickmetop.admin.domain.Admin" alias="Admin"/>
+        <typeAlias type="com.cafe24.pickmetop.company.domain.Company" alias="Company"/>
+        <typeAlias type="com.cafe24.pickmetop.company.domain.IndustryIdx1" alias="IndustryIdx1"/>
+        <typeAlias type="com.cafe24.pickmetop.company.domain.IndustryIdx2" alias="IndustryIdx2"/>
         <package name="com.cafe24.pickmetop"/>
     </typeAliases>
 
