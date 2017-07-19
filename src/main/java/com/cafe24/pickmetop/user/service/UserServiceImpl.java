@@ -76,6 +76,12 @@ public class UserServiceImpl implements UserService{
         return false;
     }
 
+    /*로그인 시간 업데이트 : updateLoginDate()*/
+    @Override
+    public void updateLoginDate(String userEmail) {
+        userDao.updateLoginDate(userEmail);
+    }
+
     /*로그아웃 : logout()*/
     @Override
     public void logout(HttpSession session) {

@@ -34,4 +34,6 @@ public interface UserDao {
     /*로그인 POST : login()*/
     User login(User user);
 
+    /*로그인 시간 업데이트 : updateLoginDate()*/
+    void updateLoginDate(String userEmail);
 }

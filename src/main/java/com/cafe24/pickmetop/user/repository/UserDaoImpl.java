@@ -69,4 +69,10 @@ public class UserDaoImpl implements UserDao {
         return sqlSession.selectOne("user.login", user);
     }
 
+    /*로그인 시간 업데이트 : updateLoginDate()*/
+    @Override
+    public void updateLoginDate(String userEmail) {
+        sqlSession.update("user.updateLoginDate", userEmail);
+    }
+
 }

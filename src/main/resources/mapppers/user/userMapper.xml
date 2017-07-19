@@ -52,7 +52,8 @@
             USER_EMAIL,
             USER_NM,
             USER_JOIN_DT,
-            USER_UPDATE_DT
+            USER_UPDATE_DT,
+            USER_LOGIN_DT
         FROM tb_user
         WHERE USER_ID = #{userId}
     </select>
@@ -95,6 +96,15 @@
         FROM tb_user
         WHERE USER_EMAIL = #{userEmail}
     </select>
+
+    <!--로그인 시간 수정-->
+    <update id="updateLoginDate" parameterType="String">
+        UPDATE tb_user
+        SET
+            USER_LOGIN_DT = NOW()
+        WHERE
+            USER_EMAIL = #{userEmail}
+    </update>
 
     <resultMap id="userResultMap" type="User">
         <id column="USER_ID" property="userId"/>

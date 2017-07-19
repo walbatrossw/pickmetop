@@ -34,6 +34,9 @@ public interface UserService {
     /*로그인 POST : login()*/
     boolean login(User user, HttpSession session);
 
+    /*로그인 시간 업데이트 : updateLoginDate()*/
+    void updateLoginDate(String userEmail);
+
     /*로그아웃 : logout()*/
     void logout(HttpSession session);
 

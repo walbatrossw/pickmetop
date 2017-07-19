@@ -87,6 +87,7 @@ public class UserController {
         boolean result = userService.login(user, session);
         ModelAndView mav = new ModelAndView();
         if (result) {
+            userService.updateLoginDate(user.getUserEmail());
             mav.setViewName("redirect:/main");
             return mav;
         }
