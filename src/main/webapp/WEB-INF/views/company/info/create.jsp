@@ -48,19 +48,19 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="industryIdx1">업종 대분류</label>
-                                            <select class="form-control" id="industryIdx1">
+                                            <label for="industryCategory1">업종 대분류</label>
+                                            <select class="form-control" id="industryCategory1">
                                                 <option value="">:::선택:::</option>
-                                                <c:forEach var="i" items="${industryIdx1}">
-                                                    <option value="${i.id}">${i.industryIdx1Name}</option>
+                                                <c:forEach var="i" items="${industryCategory1}">
+                                                    <option value="${i.industryCategory1Id}">${i.industryCategory1Name}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="industryIdx2">업종 소분류</label>
-                                            <select class="form-control" id="industryIdx2" name="industryIdx2Id">
+                                            <label for="industryCategory2Id">업종 소분류</label>
+                                            <select class="form-control" id="industryCategory2Id" name="industryCategory2Id">
                                             </select>
                                         </div>
                                     </div>
@@ -78,38 +78,38 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="birthDate">설립일자</label>
-                                            <input type="date" class="form-control" id="birthDate" name="birthDate">
+                                            <label for="companyBirthDate">설립일자</label>
+                                            <input type="date" class="form-control" id="companyBirthDate" name="companyBirthDate">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="ceo">대표이사</label>
-                                            <input type="text" class="form-control" id="ceo" name="ceo" placeholder="예) 홍길동">
+                                            <label for="companyCeo">대표이사</label>
+                                            <input type="text" class="form-control" id="companyCeo" name="companyCeo" placeholder="예) 홍길동">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="homePage">공식홈페이지</label>
-                                            <input type="text" class="form-control" id="homePage" name="homePage" placeholder="예) http://www.abc.com">
+                                            <label for="companyHomepage">공식홈페이지</label>
+                                            <input type="text" class="form-control" id="companyHomepage" name="companyHomepage" placeholder="예) http://www.abc.com">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="phone">대표번호</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="예) 02-1234-5678">
+                                            <label for="companyPhone">대표번호</label>
+                                            <input type="text" class="form-control" id="companyPhone" name="companyPhone" placeholder="예) 02-1234-5678">
                                         </div>
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="form-group">
-                                            <label for="address">본사주소</label>
-                                            <input type="text" class="form-control" id="address" name="address" placeholder="예) 서울시 강남구 XXX번지 ">
+                                            <label for="companyAddress">본사주소</label>
+                                            <input type="text" class="form-control" id="companyAddress" name="companyAddress" placeholder="예) 서울시 강남구 XXX번지 ">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="totalSales">매출액 (단위: 백만원)</label>
-                                            <input type="number" class="form-control" id="totalSales" name="totalSales" min="1">
+                                            <label for="companyTotalsales">매출액 (단위: 백만원)</label>
+                                            <input type="number" class="form-control" id="companyTotalsales" name="companyTotalsales" min="1">
                                         </div>
                                     </div>
                                 </div>
@@ -164,43 +164,43 @@
         $("#companyRegBtn").on("click", function () {
             // 기업등록 버튼 클릭시 유효성검사
             var companyName = $("#companyName");
-            var industryIdx1 = $("#industryIdx1");
+            var industryCategory1 = $("#industryCategory1");
             var companyType = $("#companyType");
-            var birthDate = $("#birthDate");
-            var ceo = $("#ceo");
-            var homePage = $("#homePage");
-            var phone = $("#phone");
-            var address = $("#address");
-            var totalSales = $("#totalSales");
+            var companyBirthDate = $("#companyBirthDate");
+            var companyCeo = $("#companyCeo");
+            var companyHomepage = $("#companyHomepage");
+            var companyPhone = $("#companyPhone");
+            var companyAddress = $("#companyAddress");
+            var companyTotalsales = $("#companyTotalsales");
             var invalidText = $("#invalidText");
 
             if (companyName.val() === "") {
                 invalidText.text("기업명을 기재해주세요.");
                 companyName.focus();
-            } else if ( industryIdx1.val() === "" ) {
+            } else if ( industryCategory1.val() === "" ) {
                 invalidText.text("업종을 선택해주세요.");
-                industryIdx1.focus();
+                industryCategory1.focus();
             } else if ( companyType.val() === "" ) {
                 invalidText.text("기업 규모를 선택해주세요.");
                 companyType.focus();
-            } else if ( birthDate.val() === "" ) {
+            } else if ( companyBirthDate.val() === "" ) {
                 invalidText.text("설립입을 기재해주세요.");
-                birthDate.focus();
-            } else if ( ceo.val() === "" ) {
+                companyBirthDate.focus();
+            } else if ( companyCeo.val() === "" ) {
                 invalidText.text("대표이사를 기재해주세요.");
-                ceo.focus();
-            } else if ( homePage.val() === "" ) {
+                companyCeo.focus();
+            } else if ( companyHomepage.val() === "" ) {
                 invalidText.text("기업홈페이지를 기재해주세요.");
-                homePage.focus();
-            } else if ( phone.val() === "" ) {
+                companyHomepage.focus();
+            } else if ( companyPhone.val() === "" ) {
                 invalidText.text("기업 대표번호를 기재해주세요.");
-                phone.focus();
-            } else if ( address.val() === "" ) {
+                companyPhone.focus();
+            } else if ( companyAddress.val() === "" ) {
                 invalidText.text("기업 본사주소를 기재해주세요.");
-                address.focus();
-            } else if ( totalSales.val() === "" || isNaN(totalSales.val()) ) {
+                companyAddress.focus();
+            } else if ( companyTotalsales.val() === "" || isNaN(totalSales.val()) ) {
                 invalidText.text("매출액을 숫자로 기재해주세요.");
-                totalSales.focus();
+                companyTotalsales.focus();
             } else {
                 $("#companyCreate").submit();
             }

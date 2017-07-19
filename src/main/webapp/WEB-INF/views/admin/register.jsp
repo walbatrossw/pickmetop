@@ -15,19 +15,19 @@
 
         <form action="${path}/admin/register" method="post" id="adminCreate">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" id="email" name="email" placeholder="이메일(아이디)">
+                <input type="email" class="form-control" id="adminEmail" name="adminEmail" placeholder="이메일(아이디)">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" id="name" name="adminName" placeholder="이름(닉네임)">
+                <input type="text" class="form-control" id="adminName" name="adminName" placeholder="이름(닉네임)">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+                <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="비밀번호">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 확인">
+                <input type="password" class="form-control" id="adminPasswordCheck" placeholder="비밀번호 확인">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="form-group">
@@ -51,8 +51,8 @@
 <script>
     $(function () {
         // 이메일 주소 중복검사
-        $("#email").blur(function () {
-            var email = $("#email").serialize();
+        $("#adminEmail").blur(function () {
+            var adminEmail = $("#adminEmail").serialize();
             $.ajax({
                 type: "post",
                 url: "/admin/duplicated/email",
@@ -73,13 +73,13 @@
             });
         });
         // 이름, 닉네임 중복검사
-        $("#name").blur(function () {
-            var name = $("#name").serialize();
+        $("#adminName").blur(function () {
+            var adminName = $("#adminName").serialize();
             $.ajax({
                 type: "post",
                 url: "/admin/duplicated/name",
                 dataType: "text",
-                data: name,
+                data: adminName,
                 success: function (data) {
                     if (data == 1) {
                         $("#invalidText").text("중복된 이름입니다.");

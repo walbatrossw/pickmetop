@@ -7,45 +7,37 @@ import java.util.Date;
 
 public class Company {
 
-    private Long id;
-    private Long industryIdx2Id;
-    private String companyType;
+    private int companyId;
+    private int industryCategory2Id;
     private String companyName;
-    private String homePage;
+    private String companyType;
+    private String companyHomepage;
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date birthDate;
-    private String ceo;
-    private String address;
-    private String phone;
-    private Long totalSales;
-    private Date createDate;
-    private Date modifiedDate;
-    private Long writerId;
+    private Date companyBirthDate;
+    private String companyCeo;
+    private String companyAddress;
+    private String companyPhone;
+    private int companyTotalsales;
+    private Date companyCreateDate;
+    private Date companyUpdateDate;
+    private int adminId;
     private Admin admin;
-    private IndustryIdx2 industryIdx2;
+    private IndustryCategory2 industryCategory2;
 
-    public Long getId() {
-        return id;
+    public int getCompanyId() {
+        return companyId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 
-    public Long getIndustryIdx2Id() {
-        return industryIdx2Id;
+    public int getIndustryCategory2Id() {
+        return industryCategory2Id;
     }
 
-    public void setIndustryIdx2Id(Long industryIdx2Id) {
-        this.industryIdx2Id = industryIdx2Id;
-    }
-
-    public String getCompanyType() {
-        return companyType;
-    }
-
-    public void setCompanyType(String companyType) {
-        this.companyType = companyType;
+    public void setIndustryCategory2Id(int industryCategory2Id) {
+        this.industryCategory2Id = industryCategory2Id;
     }
 
     public String getCompanyName() {
@@ -56,76 +48,84 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public String getHomePage() {
-        return homePage;
+    public String getCompanyType() {
+        return companyType;
     }
 
-    public void setHomePage(String homePage) {
-        this.homePage = homePage;
+    public void setCompanyType(String companyType) {
+        this.companyType = companyType;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getCompanyHomepage() {
+        return companyHomepage;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setCompanyHomepage(String companyHomepage) {
+        this.companyHomepage = companyHomepage;
     }
 
-    public String getCeo() {
-        return ceo;
+    public Date getCompanyBirthDate() {
+        return companyBirthDate;
     }
 
-    public void setCeo(String ceo) {
-        this.ceo = ceo;
+    public void setCompanyBirthDate(Date companyBirthDate) {
+        this.companyBirthDate = companyBirthDate;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCompanyCeo() {
+        return companyCeo;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCompanyCeo(String companyCeo) {
+        this.companyCeo = companyCeo;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCompanyAddress() {
+        return companyAddress;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setCompanyAddress(String companyAddress) {
+        this.companyAddress = companyAddress;
     }
 
-    public Long getTotalSales() {
-        return totalSales;
+    public String getCompanyPhone() {
+        return companyPhone;
     }
 
-    public void setTotalSales(Long totalSales) {
-        this.totalSales = totalSales;
+    public void setCompanyPhone(String companyPhone) {
+        this.companyPhone = companyPhone;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public int getCompanyTotalsales() {
+        return companyTotalsales;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCompanyTotalsales(int companyTotalsales) {
+        this.companyTotalsales = companyTotalsales;
     }
 
-    public Date getModifiedDate() {
-        return modifiedDate;
+    public Date getCompanyCreateDate() {
+        return companyCreateDate;
     }
 
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public void setCompanyCreateDate(Date companyCreateDate) {
+        this.companyCreateDate = companyCreateDate;
     }
 
-    public Long getWriterId() {
-        return writerId;
+    public Date getCompanyUpdateDate() {
+        return companyUpdateDate;
     }
 
-    public void setWriterId(Long writerId) {
-        this.writerId = writerId;
+    public void setCompanyUpdateDate(Date companyUpdateDate) {
+        this.companyUpdateDate = companyUpdateDate;
+    }
+
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
 
     public Admin getAdmin() {
@@ -136,32 +136,32 @@ public class Company {
         this.admin = admin;
     }
 
-    public IndustryIdx2 getIndustryIdx2() {
-        return industryIdx2;
+    public IndustryCategory2 getIndustryCategory2() {
+        return industryCategory2;
     }
 
-    public void setIndustryIdx2(IndustryIdx2 industryIdx2) {
-        this.industryIdx2 = industryIdx2;
+    public void setIndustryCategory2(IndustryCategory2 industryCategory2) {
+        this.industryCategory2 = industryCategory2;
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "id=" + id +
-                ", industryIdx2Id=" + industryIdx2Id +
-                ", companyType='" + companyType + '\'' +
+                "companyId=" + companyId +
+                ", industryCategory2Id=" + industryCategory2Id +
                 ", companyName='" + companyName + '\'' +
-                ", homePage='" + homePage + '\'' +
-                ", birthDate=" + birthDate +
-                ", ceo='" + ceo + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", totalSales=" + totalSales +
-                ", createDate=" + createDate +
-                ", modifiedDate=" + modifiedDate +
-                ", writerId=" + writerId +
+                ", companyType='" + companyType + '\'' +
+                ", companyHomepage='" + companyHomepage + '\'' +
+                ", companyBirthDate=" + companyBirthDate +
+                ", companyCeo='" + companyCeo + '\'' +
+                ", companyAddress='" + companyAddress + '\'' +
+                ", companyPhone='" + companyPhone + '\'' +
+                ", companyTotalsales=" + companyTotalsales +
+                ", companyCreateDate=" + companyCreateDate +
+                ", companyUpdateDate=" + companyUpdateDate +
+                ", adminId=" + adminId +
                 ", admin=" + admin +
-                ", industryIdx2=" + industryIdx2 +
+                ", industryCategory2=" + industryCategory2 +
                 '}';
     }
 }

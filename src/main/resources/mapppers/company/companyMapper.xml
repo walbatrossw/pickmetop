@@ -2,106 +2,109 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="company">
-    <select id="industryIndex1" resultMap="industryIdx1ResultMap">
+    <select id="getIndustryCategory1" resultMap="industryCategory1ResultMap">
         SELECT
-            ID,
-            INDUSTRY_IDX1_NAME
-        FROM tb_industry_idx1
+            IDCT1_ID,
+            INCT1_NM
+        FROM tb_industry_category1
     </select>
 
-    <select id="findListById" resultMap="industryIdx2ResultMap">
+    <select id="findListByCategory1Id" resultMap="industryCategory2ResultMap">
         SELECT
-            ID,
-            INDUSTRY_IDX1_ID,
-            INDUSTRY_IDX2_NAME
-        FROM tb_industry_idx2
-        WHERE INDUSTRY_IDX1_ID = #{index1Id}
+            IDCT2_ID,
+            IDCT1_ID,
+            IDCT2_NM
+        FROM tb_industry_category2
+        WHERE IDCT1_ID = #{industryCategory1Id}
     </select>
 
-    <insert id="crateCompany">
-        INSERT INTO tb_company_info (
-            INDUSTRY_IDX2_ID,
-            COMPANY_TYPE,
-            COMPANY_NAME,
-            HOMEPAGE,
-            BIRTH_DATE,
-            CEO,
-            ADDRESS,
-            PHONE,
-            TOTAL_SALES,
-            CREATE_DATE,
-            MODIFIED_DATE,
-            WRITER_ID
+    <insert id="crateCompany" parameterType="Company">
+        INSERT INTO tb_company (
+            IDCT2_ID,
+            COMP_NM,
+            COMP_TYPE,
+            COMP_HOMEPAGE,
+            COMP_BIRTH_DT,
+            COMP_ADDR,
+            COMP_CEO,
+            COMP_PHONE,
+            COMP_TOTALSALES,
+            COMP_CREATE_DT,
+            COMP_UPDATE_DT,
+            ADMIN_ID
         ) VALUES (
-            #{industryIdx2Id},
-            #{companyType},
+            #{industryCategory2Id},
             #{companyName},
-            #{homePage},
-            #{birthDate},
-            #{ceo},
-            #{address},
-            #{phone},
-            #{totalSales},
+            #{companyType},
+            #{companyHomepage},
+            #{companyBirthDate},
+            #{companyAddress},
+            #{companyCeo},
+            #{companyPhone},
+            #{companyTotalsales},
             NOW(),
             NOW(),
-            #{writerId}
+            #{adminId}
         )
     </insert>
 
     <select id="list" resultMap="companyResultMap">
         SELECT
-            CPY.ID,
-            IDX2.INDUSTRY_IDX2_NAME,
-            CPY.COMPANY_NAME,
-            CPY.COMPANY_TYPE,
-            CPY.TOTAL_SALES,
-            CPY.CREATE_DATE,
-            CPY.MODIFIED_DATE,
-            ADMIN.ADMIN_NAME
+            CPY.COMP_ID,
+            CT2.IDCT2_NM,
+            CPY.COMP_NM,
+            CPY.COMP_TYPE,
+            CPY.COMP_TOTALSALES,
+            CPY.COMP_CREATE_DT,
+            CPY.COMP_UPDATE_DT,
+            AD.ADMIN_NM
         FROM
-            tb_company_info AS CPY,
-            tb_industry_idx2 AS IDX2,
-            tb_admin AS ADMIN
+            tb_company AS CPY,
+            tb_industry_category2 AS CT2,
+            tb_admin AS AD
         WHERE
-            CPY.INDUSTRY_IDX2_ID = IDX2.ID
-            AND ADMIN.ID = CPY.WRITER_ID
+            CPY.IDCT2_ID = CT2.IDCT2_ID
+            AND AD.ADMIN_ID = CPY.ADMIN_ID
     </select>
 
     <resultMap id="companyResultMap" type="Company">
-        <id column="ID" property="id"/>
-        <result column="INDUSTRY_IDX2_ID" property="industryIdx2Id"/>
-        <result column="COMPANY_TYPE" property="companyType"/>
-        <result column="COMPANY_NAME" property="companyName"/>
-        <result column="HOMEPAGE" property="homePage"/>
-        <result column="BIRTH_DATE" property="birthDate" javaType="java.sql.Date"/>
-        <result column="CEO" property="ceo"/>
-        <result column="ADDRESS" property="address"/>
-        <result column="PHONE" property="phone"/>
-        <result column="TOTAL_SALES" property="totalSales" javaType="java.lang.Long"/>
-        <result column="CREATE_DATE" property="createDate" javaType="java.sql.Timestamp"/>
-        <result column="MODIFIED_DATE" property="modifiedDate" javaType="java.sql.Timestamp"/>
-        <result column="WRITER_ID" property="writerId"/>
+        <id column="COMP_ID" property="companyId"/>
+        <result column="IDCT2_ID" property="industryCategory2Id"/>
+        <result column="COMP_NM" property="companyName"/>
+        <result column="COMP_TYPE" property="companyType"/>
+        <result column="COMP_HOMEPAGE" property="companyHomepage"/>
+        <result column="COMP_BIRTH_DT" property="companyBirthDate" javaType="java.sql.Date"/>
+        <result column="COMP_ADDR" property="companyCeo"/>
+        <result column="COMP_CEO" property="companyAddress"/>
+        <result column="COMP_PHONE" property="companyPhone"/>
+        <result column="COMP_TOTALSALES" property="companyTotalsales" javaType="java.lang.Long"/>
+        <result column="COMP_CREATE_DT" property="companyCreateDate" javaType="java.sql.Timestamp"/>
+        <result column="COMP_UPDATE_DT" property="companyUpdateDate" javaType="java.sql.Timestamp"/>
+        <result column="ADMIN_ID" property="adminId"/>
         <association property="admin" resultMap="adminResultMap"/>
-        <association property="industryIdx2" resultMap="industryIdx2ResultMap"/>
+        <association property="industryCategory2" resultMap="industryCategory2ResultMap"/>
     </resultMap>
 
+    <!--관리자 resultMap-->
     <resultMap id="adminResultMap" type="Admin">
-        <id column="id" property="id"/>
-        <result column="EMAIL" property="email"/>
-        <result column="PASSWORD" property="password"/>
-        <result column="ADMIN_NAME" property="adminName"/>
-        <result column="CREATE_DATE" property="createDate" javaType="java.sql.Date"/>
-        <result column="MODIFIED_DATE" property="modifiedDate" javaType="java.sql.Date"/>
+        <id column="ADMIN_ID" property="adminId"/>
+        <result column="ADMIN_EMAIL" property="adminEmail"/>
+        <result column="ADMIN_NM" property="adminPassword"/>
+        <result column="ADMIN_PW" property="adminName"/>
+        <result column="ADMIN_JOIN_DT" property="adminJoinDate"/>
+        <result column="ADMIN_UPDATE_DT" property="adminUpdateDate"/>
+        <result column="ADMIN_LOGIN_DT" property="adminLoginDate"/>
     </resultMap>
 
-    <resultMap id="industryIdx1ResultMap" type="IndustryIdx1">
-        <id column="ID" property="id"/>
-        <result column="INDUSTRY_IDX1_NAME" property="industryIdx1Name"/>
+    <resultMap id="industryCategory1ResultMap" type="industryCategory1">
+        <id column="IDCT1_ID" property="industryCategory1Id"/>
+        <result column="INCT1_NM" property="industryCategory1Name"/>
     </resultMap>
 
-    <resultMap id="industryIdx2ResultMap" type="IndustryIdx2">
-        <id column="ID" property="id"/>
-        <result column="INDUSTRY_IDX1_ID" property="industryIdx1Id"/>
-        <result column="INDUSTRY_IDX2_NAME" property="industryIdx2Name"/>
+    <resultMap id="industryCategory2ResultMap" type="industryCategory2">
+        <id column="IDCT2_ID" property="industryCategory2Id"/>
+        <result column="IDCT1_ID" property="industryCategory1Id"/>
+        <result column="IDCT2_NM" property="industryCategory2Name"/>
+        <association property="industryCategory1" resultMap="industryCategory1ResultMap"/>
     </resultMap>
 </mapper>

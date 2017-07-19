@@ -6,29 +6,29 @@ import java.util.List;
 
 public interface AdminDao {
 
-    /*회원가입 POST : create()*/
+    /*관리자가입 POST : create()*/
     void create(Admin admin);
 
-    /*회원 이메일 중복 확인*/
-    int findOneByEmail(String email);
+    /*관리자 이메일 중복 확인*/
+    int findOneByEmail(String adminEmail);
 
-    /*회원 이름 중복 확인*/
-    int findOneByName(String name);
+    /*관리자 이름 중복 확인*/
+    int findOneByName(String adminName);
 
-    /*회원 목록 : list()*/
+    /*관리자 목록 : list()*/
     List<Admin> list();
 
-    /*회원 정보 상세조회 : findOneById()*/
-    Admin findOneById(Long id);
+    /*관리자 정보 상세조회 : findOneById()*/
+    Admin findOneById(int adminId);
 
-    /*회원 정보 수정 POST : update()*/
+    /*관리자 정보 수정 POST : update()*/
     void update(Admin admin);
 
-    /*회원 삭제, 탈퇴 : delete()*/
+    /*관리자 삭제, 탈퇴 : delete()*/
     void delete(Admin admin);
 
-    /*회원 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
-    boolean checkPassword(String email, String password);
+    /*관리자 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
+    boolean checkPassword(String adminEmail, String adminPassword);
 
     /*로그인 POST : login()*/
     Admin login(Admin admin);

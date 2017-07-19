@@ -1,8 +1,8 @@
 package com.cafe24.pickmetop.company.controller;
 
 import com.cafe24.pickmetop.company.domain.Company;
-import com.cafe24.pickmetop.company.domain.IndustryIdx1;
-import com.cafe24.pickmetop.company.domain.IndustryIdx2;
+import com.cafe24.pickmetop.company.domain.IndustryCategory1;
+import com.cafe24.pickmetop.company.domain.IndustryCategory2;
 import com.cafe24.pickmetop.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,25 +22,25 @@ public class CompanyController {
 
     /*기업정보 등록 : GET*/
     @RequestMapping(value = "/info/create", method = RequestMethod.GET)
-    public String insert(Model model) {
-        List<IndustryIdx1> industryIdx1 = companyService.getIndustryIndex1();
-        model.addAttribute("industryIdx1", industryIdx1);
+    public String create(Model model) {
+        // 업종 대분류 List
+        List<IndustryCategory1> industryCategory1 = companyService.getIndustryCategory1();
+        model.addAttribute("industryCategory1", industryCategory1);
         return "/company/info/create";
     }
 
-    /*산업 소분류 리스트 : GET*/
-    @RequestMapping(value = "/info/industry/index2/{index1Id}", method = RequestMethod.GET)
+    /*업종 소분류 리스트 : GET*/
+    @RequestMapping(value = "/info/industry/index2/{industryCategory1Id}", method = RequestMethod.GET)
     @ResponseBody
-    public List<IndustryIdx2> getIndustryIndex2(@PathVariable Long index1Id) {
-        List<IndustryIdx2> list = companyService.findListById(index1Id);
-        return list;
+    public List<IndustryCategory2> industryCategory2(@PathVariable int industryCategory1Id) {
+        return companyService.findListByCategory1Id(industryCategory1Id);
     }
 
     /*기업정보 등록 : POST*/
     @RequestMapping(value = "/info/create", method = RequestMethod.POST)
     public String create(@ModelAttribute Company company, HttpSession session) {
-        Long writerId = (Long) session.getAttribute("adminId");
-        company.setWriterId(writerId);
+        int writerId = (Integer) session.getAttribute("adminId");
+        company.setAdminId(writerId);
         companyService.create(company);
         return "redirect:/company/info/list";
     }

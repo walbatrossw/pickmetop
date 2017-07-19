@@ -4,56 +4,68 @@
 <mapper namespace="admin">
     <!--관리자 가입-->
     <insert id="createAdmin">
-        INSERT INTO
-            tb_admin (EMAIL, PASSWORD, ADMIN_NAME, CREATE_DATE, MODIFIED_DATE)
-        VALUES
-            (#{email}, #{password}, #{adminName}, now(), now())
+        INSERT INTO tb_admin (
+            ADMIN_EMAIL,
+            ADMIN_PW,
+            ADMIN_NM,
+            ADMIN_JOIN_DT,
+            ADMIN_UPDATE_DT,
+            ADMIN_LOGIN_DT
+        ) VALUES (
+            #{adminEmail},
+            #{adminPw},
+            #{adminName},
+            now(),
+            now(),
+            now() )
     </insert>
 
     <!--관리자 이메일 주소 중복확인-->
     <select id="findOneByEmail" resultType="int">
         SELECT COUNT(*)
         FROM tb_admin
-        WHERE EMAIL = #{email}
+        WHERE ADMIN_EMAIL = #{adminEmail}
     </select>
 
     <!--관리자 이름 중복확인-->
     <select id="findOneByName" resultType="int">
         SELECT COUNT(*)
         FROM tb_admin
-        WHERE ADMIN_NAME = #{adminName}
+        WHERE ADMIN_NM = #{adminName}
     </select>
 
     <!--관리자 리스트-->
     <select id="list" resultMap="adminResultMap">
         SELECT
-            ID,
-            EMAIL,
-            ADMIN_NAME,
-            CREATE_DATE,
-            MODIFIED_DATE
+            ADMIN_EMAIL,
+            ADMIN_NM,
+            ADMIN_JOIN_DT,
+            ADMIN_UPDATE_DT,
+            ADMIN_LOGIN_DT
         FROM tb_admin
     </select>
 
     <!--관리자 로그인-->
     <select id="login" resultMap="adminResultMap">
         SELECT
-            ID,
-            EMAIL,
-            ADMIN_NAME,
-            PASSWORD,
-            CREATE_DATE,
-            MODIFIED_DATE
+            ADMIN_EMAIL,
+            ADMIN_PW,
+            ADMIN_NM,
+            ADMIN_JOIN_DT,
+            ADMIN_UPDATE_DT,
+            ADMIN_LOGIN_DT
         FROM tb_admin
-        WHERE EMAIL = #{email}
+        WHERE ADMIN_EMAIL = #{adminEmail}
     </select>
 
+    <!--관리자 resultMap-->
     <resultMap id="adminResultMap" type="Admin">
-        <id column="id" property="id"/>
-        <result column="EMAIL" property="email"/>
-        <result column="PASSWORD" property="password"/>
-        <result column="ADMIN_NAME" property="adminName"/>
-        <result column="CREATE_DATE" property="createDate"/>
-        <result column="MODIFIED_DATE" property="modifiedDate"/>
+        <id column="ADMIN_ID" property="adminId"/>
+        <result column="ADMIN_EMAIL" property="adminEmail"/>
+        <result column="ADMIN_NM" property="adminPassword"/>
+        <result column="ADMIN_PW" property="adminName"/>
+        <result column="ADMIN_JOIN_DT" property="adminJoinDate"/>
+        <result column="ADMIN_UPDATE_DT" property="adminUpdateDate"/>
+        <result column="ADMIN_LOGIN_DT" property="adminLoginDate"/>
     </resultMap>
 </mapper>

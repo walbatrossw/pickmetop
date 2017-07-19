@@ -15,19 +15,19 @@
 
         <form id="userCreate" action="${path}/user/register" method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" id="email" name="email" placeholder="이메일 (아이디)">
+                <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="이메일 (아이디)">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" id="name" name="name" placeholder="이름 (닉네임)">
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="이름 (닉네임)">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 (특수/문자/숫자 포함 8~15자리)">
+                <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="비밀번호 (특수/문자/숫자 포함 8~15자리)">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 확인">
+                <input type="password" class="form-control" id="userPasswordCheck" placeholder="비밀번호 확인">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="form-group">
@@ -86,13 +86,13 @@
     <script>
         $(function () {
             // 이메일 주소 중복검사
-            $("#email").blur(function () {
-                var email = $("#email").serialize();
+            $("#userEmail").blur(function () {
+                var userEmail = $("#userEmail").serialize();
                 $.ajax({
                     type: "post",
                     url: "${path}/user/duplicated/email",
                     dataType: "text",
-                    data: email,
+                    data: userEmail,
                     success: function (data) {
                         if (data == 1) {
                             $("#invalidText").text("중복된 이메일 주소입니다.");
@@ -107,13 +107,13 @@
                 });
             });
             // 이름, 닉네임 중복검사
-            $("#name").blur(function () {
-                var name = $("#name").serialize();
+            $("#userName").blur(function () {
+                var userName = $("#userName").serialize();
                 $.ajax({
                     type: "post",
                     url: "${path}/user/duplicated/name",
                     dataType: "text",
-                    data: name,
+                    data: userName,
                     success: function (data) {
                         if (data == 1) {
                             $("#invalidText").text("중복된 이름입니다.");
@@ -129,30 +129,30 @@
             });
             // 회원가입 버튼 클릭시 유효성검사
             $("#regBtn").on("click", function () {
-                var email = $("#email");
-                var name = $("#name");
-                var password = $("#password");
-                var passwordCheck = $("#passwordCheck");
+                var userEmail = $("#userEmail");
+                var userName = $("#userName");
+                var userPassword = $("#userPassword");
+                var userPasswordCheck = $("#userPasswordCheck");
                 var userTerms = $("#userTerms");
                 var invalidText = $("#invalidText");
                 var emailRegx = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                var passwordRegx = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+                var pwRegx = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 
-                if ( email.val() === "" || !emailRegx.test(email.val()) ) {
+                if ( userEmail.val() === "" || !emailRegx.test(userEmail.val()) ) {
                     invalidText.text("이메일주소를 확인해주세요!");
-                    email.focus();
-                } else if (name.val() === "") {
+                    userEmail.focus();
+                } else if (userName.val() === "") {
                     invalidText.text("이름을 확인해주세요!");
-                    name.focus();
-                } else if ( password.val() === "" || !passwordRegx.test(password.val()) ) {
+                    userName.focus();
+                } else if ( userPassword.val() === "" || !pwRegx.test(userPassword.val()) ) {
                     invalidText.text("특수문자/문자/숫자 포함 8~15자리의 비밀번호!!!");
-                    password.focus();
-                } else if ( passwordCheck === "" ) {
+                    userPassword.focus();
+                } else if ( userPasswordCheck === "" ) {
                     invalidText.text("비밀번호를 확인해주세요!");
-                    passwordCheck.focus();
-                } else if ( password.val() !== $("#passwordCheck").val() ) {
+                    userPasswordCheck.focus();
+                } else if ( userPassword.val() !== userPasswordCheck.val() ) {
                     invalidText.text("비밀번호가 일치하지 않습니다!");
-                    passwordCheck.focus();
+                    userPasswordCheck.focus();
                 } else if ( !userTerms.is(":checked") ) {
                     invalidText.text("약관에 동의해주세요!");
                 } else {

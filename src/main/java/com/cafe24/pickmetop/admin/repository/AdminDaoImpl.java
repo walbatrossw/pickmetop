@@ -13,51 +13,51 @@ public class AdminDaoImpl implements AdminDao {
     @Autowired
     SqlSession sqlSession;
 
-    /*회원가입 POST : create()*/
+    /*관리자 가입 POST : create()*/
     @Override
     public void create(Admin admin) {
         sqlSession.insert("admin.createAdmin", admin);
     }
 
-    /*회원 이메일 중복 확인*/
+    /*관리자  이메일 중복 확인*/
     @Override
-    public int findOneByEmail(String email) {
-        return sqlSession.selectOne("admin.findOneByEmail", email);
+    public int findOneByEmail(String adminEmail) {
+        return sqlSession.selectOne("admin.findOneByEmail", adminEmail);
     }
 
-    /*회원 이름 중복 확인*/
+    /*관리자  이름 중복 확인*/
     @Override
-    public int findOneByName(String name) {
-        return sqlSession.selectOne("admin.findOneByName", name);
+    public int findOneByName(String adminName) {
+        return sqlSession.selectOne("admin.findOneByName", adminName);
     }
 
-    /*회원 목록 : list()*/
+    /*관리자  목록 : list()*/
     @Override
     public List<Admin> list() {
         return sqlSession.selectList("admin.list");
     }
 
-    /*회원 정보 상세조회 : findOneById()*/
+    /*관리자  정보 상세조회 : findOneById()*/
     @Override
-    public Admin findOneById(Long id) {
+    public Admin findOneById(int adminId) {
         return null;
     }
 
-    /*회원 정보 수정 POST : update()*/
+    /*관리자  정보 수정 POST : update()*/
     @Override
     public void update(Admin admin) {
 
     }
 
-    /*회원 삭제, 탈퇴 : delete()*/
+    /*관리자  삭제, 탈퇴 : delete()*/
     @Override
     public void delete(Admin admin) {
 
     }
 
-    /*회원 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
+    /*관리자  정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
     @Override
-    public boolean checkPassword(String email, String password) {
+    public boolean checkPassword(String adminEmail, String adminPassword) {
         return false;
     }
 

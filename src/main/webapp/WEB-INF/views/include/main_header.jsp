@@ -171,7 +171,7 @@
                                     <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                             ${sessionScope.adminName}
-                                        <small>${sessionScope.adminCreateTime}</small>
+                                        <small>수정요망</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -202,7 +202,7 @@
                             </ul>
                         </li>
                     </c:when>
-                    <c:when test="${sessionScope.name != null}">
+                    <c:when test="${sessionScope.userName != null}">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -332,15 +332,15 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">${sessionScope.name}</span>
+                                <span class="hidden-xs">${sessionScope.userName}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
-                                            ${sessionScope.name}
-                                        <small>${sessionScope.createTime}</small>
+                                            ${sessionScope.userId}
+                                        <small>수정요망</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -361,7 +361,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="${path}/user/view?id=${sessionScope.id}"
+                                        <a href="${path}/user/view?userId=${sessionScope.userId}"
                                            class="btn btn-default btn-flat">내 프로필</a>
                                     </div>
                                     <div class="pull-right">

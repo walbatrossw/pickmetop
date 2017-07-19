@@ -38,9 +38,9 @@
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
 
-                            <h3 class="profile-username text-center">${user.name}</h3>
+                            <h3 class="profile-username text-center">${user.userName}</h3>
 
-                            <p class="text-muted text-center">최근 로그인 일자: <fmt:formatDate value="${user.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
+                            <p class="text-muted text-center">최근 로그인 일자: <fmt:formatDate value="${user.userLoginDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
@@ -68,16 +68,16 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <strong><i class="fa fa-book margin-r-5"></i> 이메일(아이디)</strong>
-                            <p class="text-muted">${user.email}</p>
+                            <p class="text-muted">${user.userEmail}</p>
                             <hr>
                             <strong><i class="fa fa-map-marker margin-r-5"></i> 이름(닉네임)</strong>
-                            <p class="text-muted">${user.name}</p>
+                            <p class="text-muted">${user.userName}</p>
                             <hr>
                             <strong><i class="fa fa-pencil margin-r-5"></i> 가입일자</strong>
-                            <p class="text-muted"><fmt:formatDate value="${user.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
+                            <p class="text-muted"><fmt:formatDate value="${user.userJoinDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
                             <hr>
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 정보 수정일자</strong>
-                            <p class="text-muted"><fmt:formatDate value="${user.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
+                            <p class="text-muted"><fmt:formatDate value="${user.userUpdateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -103,19 +103,19 @@
                                             <!-- text input -->
                                             <div class="hidden">
                                                 <label>회원번호</label>
-                                                <input type="text" class="form-control" name="id" value="${user.id}" >
+                                                <input type="text" class="form-control" name="id" value="${user.userId}" >
                                             </div>
                                             <div class="form-group">
                                                 <label>이메일(아이디)</label>
-                                                <input type="text" class="form-control" name="email" id="email" value="${user.email}" readonly>
+                                                <input type="text" class="form-control" name="email" id="email" value="${user.userEmail}" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <label>이름</label>
-                                                <input type="text" class="form-control" name="name" id="name" value="${user.name}" placeholder="이름을 입력해주세요">
+                                                <input type="text" class="form-control" name="name" id="name" value="${user.userName}" placeholder="이름을 입력해주세요">
                                             </div>
                                             <div class="form-group">
                                                 <label>비밀번호</label>
-                                                <input type="password" class="form-control" name="password" id="password" value="${user.password}" placeholder="비밀번호를 입력해주세요">
+                                                <input type="password" class="form-control" name="password" id="password" value="${user.userPassword}" placeholder="비밀번호를 입력해주세요">
                                             </div>
                                         </form>
                                     </div>

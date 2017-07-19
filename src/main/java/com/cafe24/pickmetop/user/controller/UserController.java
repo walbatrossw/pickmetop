@@ -29,8 +29,8 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(@ModelAttribute User user) {
         // 입력받은 password 암호화
-        String hashPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-        user.setPassword(hashPassword);
+        String hashPassword = BCrypt.hashpw(user.getUserPassword(), BCrypt.gensalt());
+        user.setUserPassword(hashPassword);
         userService.create(user);
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "welcome");
@@ -41,15 +41,15 @@ public class UserController {
     /*회원 이메일 주소 중복확인*/
     @RequestMapping(value = "/duplicated/email", method = RequestMethod.POST)
     @ResponseBody
-    public int duplicatedEmailCheck(@RequestParam String email) {
-        return userService.findOneByEmail(email);
+    public int duplicatedEmailCheck(@RequestParam String userEmail) {
+        return userService.findOneByEmail(userEmail);
     }
 
     /*회원 이름 중복확인*/
     @RequestMapping(value = "/duplicated/name", method = RequestMethod.POST)
     @ResponseBody
-    public int duplicatedNameCheck(@RequestParam String name) {
-        return userService.findOneByName(name);
+    public int duplicatedNameCheck(@RequestParam String userName) {
+        return userService.findOneByName(userName);
     }
 
     /*회원 목록 : list()*/
@@ -62,8 +62,8 @@ public class UserController {
 
     /*회원 정보 상세조회 : view()*/
     @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public String view(@RequestParam Long id, Model model) {
-        model.addAttribute("user", userService.findOneById(id));
+    public String view(@RequestParam int userId, Model model) {
+        model.addAttribute("user", userService.findOneById(userId));
         return "/user/view";
     }
 

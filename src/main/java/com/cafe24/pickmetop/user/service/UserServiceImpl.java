@@ -23,14 +23,14 @@ public class UserServiceImpl implements UserService{
 
     /*회원 이메일 중복확인*/
     @Override
-    public int findOneByEmail(String email) {
-        return userDao.findOneByEmail(email);
+    public int findOneByEmail(String userEmail) {
+        return userDao.findOneByEmail(userEmail);
     }
 
     /*회원 이름 중복확인*/
     @Override
-    public int findOneByName(String name) {
-        return userDao.findOneByName(name);
+    public int findOneByName(String userName) {
+        return userDao.findOneByName(userName);
     }
 
     /*회원 목록 : list()*/
@@ -41,8 +41,8 @@ public class UserServiceImpl implements UserService{
 
     /*회원 정보 상세조회 : findOneById()*/
     @Override
-    public User findOneById(Long id) {
-        return userDao.findOneById(id);
+    public User findOneById(int userId) {
+        return userDao.findOneById(userId);
     }
 
     /*회원 정보 수정 POST : update()*/
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService{
 
     /*회원 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
     @Override
-    public boolean checkPassword(String email, String password) {
+    public boolean checkPassword(String userId, String userPassword) {
         return false;
     }
 
@@ -67,10 +67,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean login(User user, HttpSession session) {
         User loginUser = userDao.login(user);
-        if (loginUser != null && BCrypt.checkpw(user.getPassword(), loginUser.getPassword())) {
-            session.setAttribute("id", loginUser.getId()); // 회원 번호(기본키)
-            session.setAttribute("email", loginUser.getEmail()); // 회원 이메일(아이디)
-            session.setAttribute("name", loginUser.getName()); // 회원 이름
+        if (loginUser != null && BCrypt.checkpw(user.getUserPassword(), loginUser.getUserPassword())) {
+            session.setAttribute("userId", loginUser.getUserId()); // 회원 번호(기본키)
+            session.setAttribute("userEmail", loginUser.getUserEmail()); // 회원 이메일(아이디)
+            session.setAttribute("userName", loginUser.getUserName()); // 회원 이름
             return true;
         }
         return false;

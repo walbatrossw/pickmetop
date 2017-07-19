@@ -45,22 +45,23 @@
                                     <th>이름</th>
                                     <th>가입일자</th>
                                     <th>수정일자</th>
+                                    <th>로그인일자</th>
                                     <th>수정/삭제</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="i" items="${users}">
                                     <tr>
-                                        <td>${i.id}</td>
-                                        <td><a href="${path}/user/view?id=${i.id}">${i.email}</a></td>
-                                        <td>${i.name}</td>
-                                        <td><fmt:formatDate value="${i.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
-                                        <td><fmt:formatDate value="${i.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td>${i.userId}</td>
+                                        <td><a href="${path}/user/view?id=${i.id}">${i.userEmail}</a></td>
+                                        <td>${i.userName}</td>
+                                        <td><fmt:formatDate value="${i.userJoinDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${i.userUpdateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${i.userLoginDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td>
                                             <input type="button" class="btn btn-primary" value="수정">
                                             <input type="button" class="btn btn-danger" value="삭제">
                                         </td>
-
                                     </tr>
                                 </c:forEach>
                                 </tbody>

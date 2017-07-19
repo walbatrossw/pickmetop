@@ -3,35 +3,36 @@ package com.cafe24.pickmetop.admin.domain;
 import java.util.Date;
 
 public class Admin {
-    private Long id;
-    private String email;
-    private String password;
+    private int adminId;
+    private String adminEmail;
+    private String adminPassword;
     private String adminName;
-    private Date createDate;
-    private Date modifiedDate;
+    private Date adminJoinDate;
+    private Date adminUpdateDate;
+    private Date adminLoginDate;
 
-    public Long getId() {
-        return id;
+    public int getAdminId() {
+        return adminId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAdminEmail() {
+        return adminEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAdminEmail(String adminEmail) {
+        this.adminEmail = adminEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAdminPassword() {
+        return adminPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
     }
 
     public String getAdminName() {
@@ -42,31 +43,40 @@ public class Admin {
         this.adminName = adminName;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getAdminJoinDate() {
+        return adminJoinDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setAdminJoinDate(Date adminJoinDate) {
+        this.adminJoinDate = adminJoinDate;
     }
 
-    public Date getModifiedDate() {
-        return modifiedDate;
+    public Date getAdminUpdateDate() {
+        return adminUpdateDate;
     }
 
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public void setAdminUpdateDate(Date adminUpdateDate) {
+        this.adminUpdateDate = adminUpdateDate;
+    }
+
+    public Date getAdminLoginDate() {
+        return adminLoginDate;
+    }
+
+    public void setAdminLoginDate(Date adminLoginDate) {
+        this.adminLoginDate = adminLoginDate;
     }
 
     @Override
     public String toString() {
         return "Admin{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                "adminId=" + adminId +
+                ", adminEmail='" + adminEmail + '\'' +
+                ", adminPassword='" + adminPassword + '\'' +
                 ", adminName='" + adminName + '\'' +
-                ", createDate=" + createDate +
-                ", modifiedDate=" + modifiedDate +
+                ", adminJoinDate=" + adminJoinDate +
+                ", adminUpdateDate=" + adminUpdateDate +
+                ", adminLoginDate=" + adminLoginDate +
                 '}';
     }
 }

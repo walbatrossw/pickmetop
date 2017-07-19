@@ -11,16 +11,16 @@ public interface AdminService {
     void create(Admin admin);
 
     /*관리자 이메일중복 확인*/
-    int findOneByEmail(String email);
+    int findOneByEmail(String adminEmail);
 
     /*관리자 이메일중복 확인*/
-    int findOneByName(String name);
+    int findOneByName(String adminName);
 
     /*관리자 목록 : list()*/
     List<Admin> list();
 
     /*관리자 정보 상세조회 : findOneById()*/
-    Admin findOneById(Long id);
+    Admin findOneById(int adminId);
 
     /*관리자 정보 수정 POST : update()*/
     void update(Admin admin);
@@ -29,7 +29,7 @@ public interface AdminService {
     void delete(Admin admin);
 
     /*관리자 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
-    boolean checkPassword(String email, String password);
+    boolean checkPassword(String adminEmail, String adminPassword);
 
     /*관리자 로그인 POST : login()*/
     boolean login(Admin admin, HttpSession session);

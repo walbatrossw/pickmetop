@@ -29,8 +29,8 @@ public class AdminController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(@ModelAttribute Admin admin) {
         // 입력받은 password 암호화
-        String hashPassword = BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt());
-        admin.setPassword(hashPassword);
+        String hashPassword = BCrypt.hashpw(admin.getAdminPassword(), BCrypt.gensalt());
+        admin.setAdminPassword(hashPassword);
         adminService.create(admin);
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "welcome");

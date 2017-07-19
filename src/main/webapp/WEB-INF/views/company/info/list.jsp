@@ -53,13 +53,13 @@
                                 <tbody>
                                     <c:forEach var="i" items="${companies}">
                                     <tr>
-                                        <td>${i.id}</td>
+                                        <td>${i.companyId}</td>
                                         <td>${i.companyName}</td>
-                                        <td>${i.industryIdx2.industryIdx2Name}</td>
+                                        <td>${i.industryCategory2.industryCategory2Name}</td>
                                         <td>${i.companyType}</td>
-                                        <td align="right"><fmt:formatNumber value="${i.totalSales}" type="number"/></td>
-                                        <td>${i.createDate}</td>
-                                        <td>${i.modifiedDate}</td>
+                                        <td align="right"><fmt:formatNumber value="${i.companyTotalsales}" type="number"/></td>
+                                        <td>${i.companyCreateDate}</td>
+                                        <td>${i.companyUpdateDate}</td>
                                         <td>${i.admin.adminName}</td>
                                     </tr>
                                     </c:forEach>

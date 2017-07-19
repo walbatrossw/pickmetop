@@ -23,14 +23,14 @@ public class AdminServiceImpl implements  AdminService {
 
     /*관리자 이메일중복 확인*/
     @Override
-    public int findOneByEmail(String email) {
-        return adminDao.findOneByEmail(email);
+    public int findOneByEmail(String adminEmail) {
+        return adminDao.findOneByEmail(adminEmail);
     }
 
     /*관리자 이메일중복 확인*/
     @Override
-    public int findOneByName(String name) {
-        return adminDao.findOneByName(name);
+    public int findOneByName(String adminName) {
+        return adminDao.findOneByName(adminName);
     }
 
     /*관리자 목록 : list()*/
@@ -41,7 +41,7 @@ public class AdminServiceImpl implements  AdminService {
 
     /*관리자 정보 상세조회 : findOneById()*/
     @Override
-    public Admin findOneById(Long id) {
+    public Admin findOneById(int adminId) {
         return null;
     }
 
@@ -59,7 +59,7 @@ public class AdminServiceImpl implements  AdminService {
 
     /*관리자 정보 수정, 삭제를 위한 비밀번호 확인 : checkPassword()*/
     @Override
-    public boolean checkPassword(String email, String password) {
+    public boolean checkPassword(String adminEmail, String adminPassword) {
         return false;
     }
 
@@ -67,9 +67,9 @@ public class AdminServiceImpl implements  AdminService {
     @Override
     public boolean login(Admin admin, HttpSession session) {
         Admin loginAdmin = adminDao.login(admin);
-        if (loginAdmin != null && BCrypt.checkpw(admin.getPassword(), loginAdmin.getPassword())) {
-            session.setAttribute("adminId", loginAdmin.getId()); // 관리자 번호(기본키)
-            session.setAttribute("adminEmail", loginAdmin.getEmail()); // 관리자 이메일(아이디)
+        if (loginAdmin != null && BCrypt.checkpw(admin.getAdminPassword(), loginAdmin.getAdminPassword())) {
+            session.setAttribute("adminId", loginAdmin.getAdminId()); // 관리자 번호(기본키)
+            session.setAttribute("adminEmail", loginAdmin.getAdminEmail()); // 관리자 이메일(아이디)
             session.setAttribute("adminName", loginAdmin.getAdminName()); // 관리자 이름
             return true;
         }

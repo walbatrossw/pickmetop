@@ -14,12 +14,12 @@
                         <a href="#"><i class="fa fa-circle text-success"></i> ONLINE</a>
                     </div>
                 </c:when>
-                <c:when test="${sessionScope.name != null}">
+                <c:when test="${sessionScope.userName != null}">
                     <div class="pull-left image">
                         <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>${sessionScope.name} 님</p>
+                        <p>${sessionScope.userName} 님</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> ONLINE</a>
                     </div>
                 </c:when>
