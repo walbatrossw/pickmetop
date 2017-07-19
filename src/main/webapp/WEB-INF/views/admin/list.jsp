@@ -45,17 +45,19 @@
                                     <th>관리자 이름</th>
                                     <th>가입일자</th>
                                     <th>수정일자</th>
+                                    <th>로그인일자</th>
                                     <th>수정/삭제</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="row" items="${admins}">
+                                <c:forEach var="i" items="${admins}">
                                     <tr>
-                                        <td>${row.id}</td>
-                                        <td><a href="${path}/user/view?id=${row.id}">${row.email}</a></td>
-                                        <td>${row.adminName}</td>
-                                        <td><fmt:formatDate value="${row.createDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
-                                        <td><fmt:formatDate value="${row.modifiedDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td>${i.adminId}</td>
+                                        <td><a href="${path}/user/view?id=${i.adminId}">${i.adminEmail}</a></td>
+                                        <td>${i.adminName}</td>
+                                        <td><fmt:formatDate value="${i.adminJoinDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${i.adminUpdateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${i.adminLoginDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td>
                                             <input type="button" class="btn btn-primary" value="수정">
                                             <input type="button" class="btn btn-danger" value="삭제">

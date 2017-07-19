@@ -57,7 +57,7 @@
                 type: "post",
                 url: "/admin/duplicated/email",
                 dataType: "text",
-                data: email,
+                data: adminEmail,
                 success: function (data) {
                     if (data == 1) {
                         console.log(data);
@@ -95,32 +95,29 @@
         });
         // 관리자 가입버튼 클릭시 유효성 검사
         $("#regBtn").on("click", function () {
-            var email = $("#email");
-            var emailValue = email.val();
+            var adminEmail = $("#adminEmail");
             var adminName = $("#adminName");
-            var password = $("#password");
-            var passwordValue = password.val();
-            var passwordCheck = $("#passwordCheck");
-            var passwordCheckValue = $("#passwordCheck").val();
+            var adminPassword = $("#adminPassword");
+            var adminPasswordCheck = $("#adminPasswordCheck");
             var invalidText = $("#invalidText");
             var emailRegx = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
             var passwordRegx = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 
-            if ( emailValue === "" || !emailRegx.test(emailValue) ) {
+            if ( adminEmail.val() === "" || !emailRegx.test(adminEmail.val()) ) {
                 invalidText.text("이메일주소를 확인해주세요!");
-                email.focus();
+                adminEmail.focus();
             } else if (adminName.val() === "") {
                 invalidText.text("이름을 확인해주세요!");
                 adminName.focus();
-            } else if ( passwordValue === "" || !passwordRegx.test(passwordValue) ) {
+            } else if ( adminPassword.val() === "" || !passwordRegx.test(adminPassword.val()) ) {
                 invalidText.text("특수문자/문자/숫자 포함 8~15자리의 비밀번호!!!");
-                password.focus();
-            } else if ( passwordCheck === "" ) {
+                adminPassword.focus();
+            } else if ( adminPasswordCheck === "" ) {
                 invalidText.text("비밀번호를 확인해주세요!");
-                passwordCheck.focus();
-            } else if ( passwordValue !== passwordCheckValue ) {
+                adminPasswordCheck.focus();
+            } else if ( adminPassword.val() !== adminPasswordCheck.val() ) {
                 invalidText.text("비밀번호가 일치하지 않습니다!");
-                passwordCheck.focus();
+                adminPasswordCheck.focus();
             } else {
                 $("#adminCreate").submit();
             }

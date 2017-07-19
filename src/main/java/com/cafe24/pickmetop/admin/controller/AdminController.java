@@ -41,15 +41,15 @@ public class AdminController {
     /*관리자 이메일 주소 중복확인*/
     @RequestMapping(value = "/duplicated/email", method = RequestMethod.POST)
     @ResponseBody
-    public int duplicatedEmailCheck(@RequestParam String email) {
-        return adminService.findOneByEmail(email);
+    public int duplicatedEmailCheck(@RequestParam String adminEmail) {
+        return adminService.findOneByEmail(adminEmail);
     }
 
     /*관리자 이름 중복확인*/
     @RequestMapping(value = "/duplicated/name", method = RequestMethod.POST)
     @ResponseBody
-    public int duplicatedNameCheck(@RequestParam String name) {
-        return adminService.findOneByName(name);
+    public int duplicatedNameCheck(@RequestParam String adminName) {
+        return adminService.findOneByName(adminName);
     }
 
     /*관리자 목록 : list()*/
@@ -82,6 +82,7 @@ public class AdminController {
         boolean result = adminService.login(admin, session);
         ModelAndView mav = new ModelAndView();
         if (result) {
+            adminService.updateLoginDate(admin.getAdminEmail());
             mav.setViewName("redirect:/main");
             return mav;
         }

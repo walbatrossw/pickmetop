@@ -66,4 +66,9 @@ public class AdminDaoImpl implements AdminDao {
     public Admin login(Admin admin) {
         return sqlSession.selectOne("admin.login", admin);
     }
+
+    @Override
+    public void updateLoginDate(String adminEmail) {
+        sqlSession.update("admin.updateLoginDate", adminEmail);
+    }
 }

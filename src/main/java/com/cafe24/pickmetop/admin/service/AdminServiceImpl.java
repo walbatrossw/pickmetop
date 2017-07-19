@@ -76,6 +76,12 @@ public class AdminServiceImpl implements  AdminService {
         return false;
     }
 
+    /*관리자 로그인시간 수정 : updateLoginDate()*/
+    @Override
+    public void updateLoginDate(String adminEmail) {
+        adminDao.updateLoginDate(adminEmail);
+    }
+
     /*관리자 로그아웃 : logout()*/
     @Override
     public void logout(HttpSession session) {

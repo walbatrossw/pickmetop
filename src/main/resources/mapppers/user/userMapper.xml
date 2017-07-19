@@ -41,7 +41,8 @@
             USER_EMAIL,
             USER_NM,
             USER_JOIN_DT,
-            USER_UPDATE_DT
+            USER_UPDATE_DT,
+            USER_LOGIN_DT
         FROM tb_user
     </select>
 

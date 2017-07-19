@@ -2,14 +2,14 @@ package com.cafe24.pickmetop.company.domain;
 
 
 public class IndustryCategory1 {
-    private Long industryCategory1Id;
+    private int industryCategory1Id;
     private String industryCategory1Name;
 
-    public Long getIndustryCategory1Id() {
+    public int getIndustryCategory1Id() {
         return industryCategory1Id;
     }
 
-    public void setIndustryCategory1Id(Long industryCategory1Id) {
+    public void setIndustryCategory1Id(int industryCategory1Id) {
         this.industryCategory1Id = industryCategory1Id;
     }
 

@@ -37,11 +37,11 @@
                 </c:if>
             </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" name="email" placeholder="이메일" value="walbatrossw@gmail.com">
+                <input type="email" class="form-control" name="adminEmail" placeholder="이메일" value="walbatrossw@gmail.com">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" name="password" placeholder="비밀번호" value="qazwsx12!">
+                <input type="password" class="form-control" name="adminPassword" placeholder="비밀번호" value="qazwsx12!">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">

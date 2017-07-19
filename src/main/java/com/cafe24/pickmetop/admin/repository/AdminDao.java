@@ -32,5 +32,7 @@ public interface AdminDao {
 
     /*로그인 POST : login()*/
     Admin login(Admin admin);
-    
+
+    /*관리자 로그인시간 수정 : updateLoginDate()*/
+    void updateLoginDate(String adminEmail);
 }

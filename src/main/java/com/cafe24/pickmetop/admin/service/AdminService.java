@@ -34,6 +34,9 @@ public interface AdminService {
     /*관리자 로그인 POST : login()*/
     boolean login(Admin admin, HttpSession session);
 
+    /*관리자 로그인시간 수정 : updateLoginDate()*/
+    void updateLoginDate(String adminEmail);
+
     /*관리자 로그아웃 : logout()*/
     void logout(HttpSession session);
 }

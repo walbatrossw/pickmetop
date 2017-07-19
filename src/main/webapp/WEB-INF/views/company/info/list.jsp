@@ -58,8 +58,8 @@
                                         <td>${i.industryCategory2.industryCategory2Name}</td>
                                         <td>${i.companyType}</td>
                                         <td align="right"><fmt:formatNumber value="${i.companyTotalsales}" type="number"/></td>
-                                        <td>${i.companyCreateDate}</td>
-                                        <td>${i.companyUpdateDate}</td>
+                                        <td><fmt:formatDate value="${i.companyCreateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${i.companyUpdateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td>${i.admin.adminName}</td>
                                     </tr>
                                     </c:forEach>

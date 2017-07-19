@@ -30,7 +30,7 @@ public class CompanyController {
     }
 
     /*업종 소분류 리스트 : GET*/
-    @RequestMapping(value = "/info/industry/index2/{industryCategory1Id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/info/industry/category2/{industryCategory1Id}", method = RequestMethod.GET)
     @ResponseBody
     public List<IndustryCategory2> industryCategory2(@PathVariable int industryCategory1Id) {
         return companyService.findListByCategory1Id(industryCategory1Id);

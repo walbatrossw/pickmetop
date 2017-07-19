@@ -73,13 +73,13 @@
         <result column="COMP_NM" property="companyName"/>
         <result column="COMP_TYPE" property="companyType"/>
         <result column="COMP_HOMEPAGE" property="companyHomepage"/>
-        <result column="COMP_BIRTH_DT" property="companyBirthDate" javaType="java.sql.Date"/>
+        <result column="COMP_BIRTH_DT" property="companyBirthDate"/>
         <result column="COMP_ADDR" property="companyCeo"/>
         <result column="COMP_CEO" property="companyAddress"/>
         <result column="COMP_PHONE" property="companyPhone"/>
-        <result column="COMP_TOTALSALES" property="companyTotalsales" javaType="java.lang.Long"/>
-        <result column="COMP_CREATE_DT" property="companyCreateDate" javaType="java.sql.Timestamp"/>
-        <result column="COMP_UPDATE_DT" property="companyUpdateDate" javaType="java.sql.Timestamp"/>
+        <result column="COMP_TOTALSALES" property="companyTotalsales"/>
+        <result column="COMP_CREATE_DT" property="companyCreateDate"/>
+        <result column="COMP_UPDATE_DT" property="companyUpdateDate"/>
         <result column="ADMIN_ID" property="adminId"/>
         <association property="admin" resultMap="adminResultMap"/>
         <association property="industryCategory2" resultMap="industryCategory2ResultMap"/>
@@ -89,8 +89,8 @@
     <resultMap id="adminResultMap" type="Admin">
         <id column="ADMIN_ID" property="adminId"/>
         <result column="ADMIN_EMAIL" property="adminEmail"/>
-        <result column="ADMIN_NM" property="adminPassword"/>
-        <result column="ADMIN_PW" property="adminName"/>
+        <result column="ADMIN_NM" property="adminName"/>
+        <result column="ADMIN_PW" property="adminPw"/>
         <result column="ADMIN_JOIN_DT" property="adminJoinDate"/>
         <result column="ADMIN_UPDATE_DT" property="adminUpdateDate"/>
         <result column="ADMIN_LOGIN_DT" property="adminLoginDate"/>

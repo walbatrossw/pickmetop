@@ -59,8 +59,8 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="industryCategory2Id">업종 소분류</label>
-                                            <select class="form-control" id="industryCategory2Id" name="industryCategory2Id">
+                                            <label for="industryCategory2">업종 소분류</label>
+                                            <select class="form-control" id="industryCategory2" name="industryCategory2Id">
                                             </select>
                                         </div>
                                     </div>
@@ -146,15 +146,16 @@
 <script>
     $(function () {
         // 기업 업종 combo select box
-        $("#industryIdx1").change(function () {
-            var idx1Id = $("#industryIdx1 option:selected").val();
-            $("#industryIdx2 option").remove();
+        $("#industryCategory1").change(function () {
+            var industryCategory1Id = $("#industryCategory1 option:selected").val();
+            $("#industryCategory2 option").remove();
             $.ajax({
                 type: "get",
-                url: "${path}/company/info/industry/index2/" + idx1Id,
+                url: "${path}/company/info/industry/category2/" + industryCategory1Id,
                 success: function (data) {
                     for (var i in data) {
-                        $("#industryIdx2").append("<option value='" + data[i].id + "'>" + data[i].industryIdx2Name + "</option>")
+                        $("#industryCategory2").append(
+                            "<option value='" + data[i].industryCategory2Id + "'>" + data[i].industryCategory2Name + "</option>")
                     }
                 }
             });
@@ -198,7 +199,7 @@
             } else if ( companyAddress.val() === "" ) {
                 invalidText.text("기업 본사주소를 기재해주세요.");
                 companyAddress.focus();
-            } else if ( companyTotalsales.val() === "" || isNaN(totalSales.val()) ) {
+            } else if ( companyTotalsales.val() === "" || isNaN(companyTotalsales.val()) ) {
                 invalidText.text("매출액을 숫자로 기재해주세요.");
                 companyTotalsales.focus();
             } else {

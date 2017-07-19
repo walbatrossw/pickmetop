@@ -13,7 +13,7 @@
             ADMIN_LOGIN_DT
         ) VALUES (
             #{adminEmail},
-            #{adminPw},
+            #{adminPassword},
             #{adminName},
             now(),
             now(),
@@ -48,6 +48,7 @@
     <!--관리자 로그인-->
     <select id="login" resultMap="adminResultMap">
         SELECT
+            ADMIN_ID,
             ADMIN_EMAIL,
             ADMIN_PW,
             ADMIN_NM,
@@ -58,12 +59,21 @@
         WHERE ADMIN_EMAIL = #{adminEmail}
     </select>
 
+    <!--로그인 시간 수정-->
+    <update id="updateLoginDate" parameterType="String">
+        UPDATE tb_admin
+        SET
+            ADMIN_LOGIN_DT = NOW()
+        WHERE
+            ADMIN_EMAIL = #{adminEmail}
+    </update>
+
     <!--관리자 resultMap-->
     <resultMap id="adminResultMap" type="Admin">
         <id column="ADMIN_ID" property="adminId"/>
         <result column="ADMIN_EMAIL" property="adminEmail"/>
-        <result column="ADMIN_NM" property="adminPassword"/>
-        <result column="ADMIN_PW" property="adminName"/>
+        <result column="ADMIN_NM" property="adminName"/>
+        <result column="ADMIN_PW" property="adminPassword"/>
         <result column="ADMIN_JOIN_DT" property="adminJoinDate"/>
         <result column="ADMIN_UPDATE_DT" property="adminUpdateDate"/>
         <result column="ADMIN_LOGIN_DT" property="adminLoginDate"/>
