@@ -53,7 +53,7 @@
                                 <c:forEach var="i" items="${admins}">
                                     <tr>
                                         <td>${i.adminId}</td>
-                                        <td><a href="${path}/user/view?id=${i.adminId}">${i.adminEmail}</a></td>
+                                        <td><a href="${path}/admin/view/${i.adminId}">${i.adminEmail}</a></td>
                                         <td>${i.adminName}</td>
                                         <td><fmt:formatDate value="${i.adminJoinDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>
                                         <td><fmt:formatDate value="${i.adminUpdateDate}" pattern="yyyy-MM-dd a HH:mm:ss"/></td>

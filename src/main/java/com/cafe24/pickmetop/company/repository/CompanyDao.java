@@ -18,4 +18,10 @@ public interface CompanyDao {
 
     /*기업정보 리스트*/
     List<Company> list();
+
+    /*기업정보 상세보기 : GET*/
+    Company findOneByCompanyId(int companyId);
+
+    /*기업정보 수정 : POST*/
+    void updateCompanyInfo(Company company);
 }

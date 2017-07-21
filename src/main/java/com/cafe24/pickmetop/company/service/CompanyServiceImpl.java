@@ -34,4 +34,16 @@ public class CompanyServiceImpl implements CompanyService {
     public List<Company> list() {
         return companyDao.list();
     }
+
+    /*기업정보 상세보기 : GET*/
+    @Override
+    public Company findOneByCompanyId(int companyId) {
+        return companyDao.findOneByCompanyId(companyId);
+    }
+
+    /*기업정보 수정 : POST*/
+    @Override
+    public void updateCompanyInfo(Company company) {
+        companyDao.updateCompanyInfo(company);
+    }
 }

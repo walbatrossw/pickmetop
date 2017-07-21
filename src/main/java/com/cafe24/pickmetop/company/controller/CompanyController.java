@@ -6,6 +6,7 @@ import com.cafe24.pickmetop.company.domain.IndustryCategory2;
 import com.cafe24.pickmetop.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ public class CompanyController {
     CompanyService companyService;
 
     /*기업정보 등록 : GET*/
+    @Transactional
     @RequestMapping(value = "/info/create", method = RequestMethod.GET)
     public String create(Model model) {
         // 업종 대분류 List
@@ -52,5 +54,27 @@ public class CompanyController {
         return "/company/info/list";
     }
 
+    /*기업정보 상세보기 : GET*/
+    @RequestMapping(value = "/info/{companyId}/view", method = RequestMethod.GET)
+    public String view(@PathVariable int companyId, Model model) {
+        // 업종 대분류 List
+        List<IndustryCategory1> industryCategory1 = companyService.getIndustryCategory1();
+        model.addAttribute("industryCategory1", industryCategory1);
+        model.addAttribute("company", companyService.findOneByCompanyId(companyId));
+        return "/company/info/view";
+    }
+
+    /*기업정보 수정 : POST*/
+    @Transactional
+    @RequestMapping(value = "/info/{companyId}/update", method = RequestMethod.POST)
+    public String update(@PathVariable int companyId, @ModelAttribute Company company, HttpSession session) {
+        company.setCompanyId(companyId);
+        int writerId = (Integer) session.getAttribute("adminId");
+        company.setAdminId(writerId);
+        companyService.updateCompanyInfo(company);
+        return "redirect:/company/info/list";
+    }
+
+    /*기업정보 삭제 : POST*/
 
 }

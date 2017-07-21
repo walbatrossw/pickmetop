@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                회원 리스트
+                기업 리스트
                 <small>리스트</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> 회원관리</a></li>
-                <li class="active"> 회원 리스트</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> 기업관리</a></li>
+                <li class="active"> 기업 리스트</li>
             </ol>
         </section>
 
@@ -33,7 +33,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">회원 리스트</h3>
+                            <h3 class="box-title">기업 리스트</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -54,7 +54,7 @@
                                     <c:forEach var="i" items="${companies}">
                                     <tr>
                                         <td>${i.companyId}</td>
-                                        <td>${i.companyName}</td>
+                                        <td><a href="/company/info/${i.companyId}/view">${i.companyName}</a></td>
                                         <td>${i.industryCategory2.industryCategory2Name}</td>
                                         <td>${i.companyType}</td>
                                         <td align="right"><fmt:formatNumber value="${i.companyTotalsales}" type="number"/></td>

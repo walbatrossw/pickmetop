@@ -61,8 +61,8 @@ public class UserController {
     }
 
     /*회원 정보 상세조회 : view()*/
-    @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public String view(@RequestParam int userId, Model model) {
+    @RequestMapping(value = "/view/{userId}", method = RequestMethod.GET)
+    public String view(@PathVariable int userId, Model model) {
         model.addAttribute("user", userService.findOneById(userId));
         return "/user/view";
     }

@@ -50,7 +50,7 @@
                                         <div class="form-group">
                                             <label for="industryCategory1">업종 대분류</label>
                                             <select class="form-control" id="industryCategory1">
-                                                <option value="">:::선택:::</option>
+                                                <option value="">::::선택::::</option>
                                                 <c:forEach var="i" items="${industryCategory1}">
                                                     <option value="${i.industryCategory1Id}">${i.industryCategory1Name}</option>
                                                 </c:forEach>
@@ -66,13 +66,16 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="companyType">기업규모</label>
+                                            <label for="companyType">기업형태</label>
                                             <select class="form-control" id="companyType" name="companyType">
-                                                <option value="">:::선택:::</option>
+                                                <option value="">::::선택::::</option>
                                                 <option value="대기업">대기업</option>
+                                                <option value="중견기업">중견기업</option>
                                                 <option value="중소기업">중소기업</option>
                                                 <option value="외국계">외국계</option>
                                                 <option value="스타트업">스타트업</option>
+                                                <option value="공공기관">공공기관</option>
+                                                <option value="공기업">공기업</option>
                                             </select>
                                         </div>
                                     </div>

@@ -17,6 +17,12 @@ public interface CompanyService {
     /*기업정보 등록 : POST*/
     void create(Company company);
 
-    /*기업정보 리스트*/
+    /*기업정보 리스트 : GET*/
     List<Company> list();
+
+    /*기업정보 상세보기 : GET*/
+    Company findOneByCompanyId(int companyId);
+
+    /*기업정보 수정 : POST*/
+    void updateCompanyInfo(Company company);
 }

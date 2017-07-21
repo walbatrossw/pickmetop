@@ -34,4 +34,17 @@ public class CompanyDaoImpl implements CompanyDao{
     public List<Company> list() {
         return sqlSession.selectList("company.list");
     }
+
+    /*기업정보 상세보기 : GET*/
+    @Override
+    public Company findOneByCompanyId(int companyId) {
+        return sqlSession.selectOne("company.findOneByCompanyId", companyId);
+    }
+
+    /*기업정보 수정 : POST*/
+    @Override
+    public void updateCompanyInfo(Company company) {
+        sqlSession.update("company.updateCompanyInfo", company);
+    }
+
 }
