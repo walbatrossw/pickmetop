@@ -36,6 +36,7 @@
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
     <beans:bean id="loginPageInterceptor" class="com.cafe24.pickmetop.utils.interceptors.loginPageInterceptor"/>
+    <beans:bean id="adminPageInterceptor" class="com.cafe24.pickmetop.utils.interceptors.AdminPageInterceptor"/>
     <interceptors>
         <interceptor>
             <mapping path="/user/login"/>
@@ -43,6 +44,13 @@
             <mapping path="/admin/login"/>
             <mapping path="/admin/register"/>
             <beans:ref bean="loginPageInterceptor"/>
+        </interceptor>
+        <interceptor>
+            <mapping path="/admin/list"/>
+            <mapping path="/user/list"/>
+            <mapping path="/company/info/create"/>
+            <mapping path="/company/info/list"/>
+            <beans:ref bean="adminPageInterceptor"/>
         </interceptor>
     </interceptors>
 
