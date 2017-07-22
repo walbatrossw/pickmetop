@@ -47,4 +47,10 @@ public class CompanyDaoImpl implements CompanyDao{
         sqlSession.update("company.updateCompanyInfo", company);
     }
 
+    /*기업정보 삭제 : POST*/
+    @Override
+    public void deleteOneByCompanyId(int companyId) {
+        sqlSession.delete("company.deleteOneByCompanyId", companyId);
+    }
+
 }

@@ -120,6 +120,12 @@
         WHERE COMP_ID = #{companyId}
     </update>
 
+    <!--기업정보 DELETE-->
+    <delete id="deleteOneByCompanyId" parameterType="int">
+        DELETE FROM tb_company
+        WHERE COMP_ID = #{companyId}
+    </delete>
+
     <!--기업 resultMap-->
     <resultMap id="companyResultMap" type="Company">
         <id column="COMP_ID" property="companyId"/>

@@ -46,4 +46,10 @@ public class CompanyServiceImpl implements CompanyService {
     public void updateCompanyInfo(Company company) {
         companyDao.updateCompanyInfo(company);
     }
+
+    /*기업정보 삭제 : POST*/
+    @Override
+    public void deleteOneByCompanyId(int companyId) {
+        companyDao.deleteOneByCompanyId(companyId);
+    }
 }

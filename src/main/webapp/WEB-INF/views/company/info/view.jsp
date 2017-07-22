@@ -90,7 +90,7 @@
                                 </li>
                             </ul>
                             <button class="btn btn-primary pull-left" data-toggle="modal" data-target="#companyInfoUpdateModal"> 수정</button>
-                            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myInfoUpdateModal"> 삭제</button>
+                            <button class="btn btn-primary pull-right" id="companyDeleteBtn"> 삭제</button>
                         </div>
                         <!-- /.box-body -->
 
@@ -387,6 +387,12 @@
                 $("#companyInfoUpdate").submit();
             }
         });
+        
+        $("#companyDeleteBtn").on("click", function () {
+            if (confirm("기업정보를 삭제하시겠습니까?")) {
+                location.href = "${path}/company/info/${company.companyId}/delete";
+            }
+        })
     })
 </script>
 </body>
