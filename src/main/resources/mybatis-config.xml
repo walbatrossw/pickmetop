@@ -10,6 +10,11 @@
         <typeAlias type="com.cafe24.pickmetop.company.domain.Company" alias="Company"/>
         <typeAlias type="com.cafe24.pickmetop.company.domain.IndustryCategory1" alias="IndustryIdx1"/>
         <typeAlias type="com.cafe24.pickmetop.company.domain.IndustryCategory2" alias="IndustryIdx2"/>
+        <typeAlias type="com.cafe24.pickmetop.recruit.domain.JobCategory1" alias="JobCategory1"/>
+        <typeAlias type="com.cafe24.pickmetop.recruit.domain.JobCategory2" alias="JobCategory2"/>
+        <typeAlias type="com.cafe24.pickmetop.recruit.domain.RecruitCompany" alias="RecruitCompany"/>
+        <typeAlias type="com.cafe24.pickmetop.recruit.domain.RecruitCompanyJob" alias="RecruitCompanyJob"/>
+        <typeAlias type="com.cafe24.pickmetop.recruit.domain.RecruitCompanyJobArticle" alias="RecruitCompanyJobArticle"/>
         <package name="com.cafe24.pickmetop"/>
     </typeAliases>
 

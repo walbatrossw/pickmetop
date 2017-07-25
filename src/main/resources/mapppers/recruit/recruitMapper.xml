@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--기본 템플릿-->
+<mapper namespace="recruit">
+
+    <!--직무 대분류 SELECT ALL-->
+    <select id="selectJobCategory1" resultMap="jobCategory1ResultMap">
+        SELECT
+            JBCT1_ID,
+            JBCT1_NM
+        FROM tb_job_category1
+    </select>
+
+    <!--직무 소분류 SELECT BY jobCategory1Id-->
+    <select id="selectJobCategory2" resultMap="jobCategory2ResultMap">
+        SELECT
+            JBCT2_ID,
+            JBCT1_ID,
+            JBCT2_NM
+        FROM tb_job_category2
+        WHERE JBCT1_ID = #{jobCategory1Id}
+    </select>
+
+    <!--기업 ID SELECT BY companyName-->
+    <select id="selectCompanyIdByCompanyName" resultType="int">
+        SELECT COMP_ID
+        FROM tb_company
+        WHERE COMP_NM = #{recruitCompanyName}
+    </select>
+
+    <!--채용 기업 ID SELECT BY recruitName-->
+    <select id="selectRecruitCompanyIdByRecruitName" resultType="int">
+        SELECT RCCP_ID
+        FROM tb_recruit_company
+        WHERE RCCP_NM = #{recruitName}
+    </select>
+
+    <!--채용 기업 직무 ID SELECT BY jobCategory2Id-->
+    <select id="selectRecruitCompanyJobIdByJobCategory2Id" resultType="int">
+        SELECT RCCJ_ID
+        FROM tb_recruit_company_job
+        WHERE JBCT2_ID = #{jobCategory2Id}
+    </select>
+
+    <!--채용 기업 INSERT-->
+    <insert id="insertRecruitCompany" parameterType="RecruitCompany" useGeneratedKeys="true" keyProperty="recruitCompanyId">
+        INSERT INTO tb_recruit_company (
+            COMP_ID,
+            RCCP_NM,
+            RCCP_BEGIN_DT,
+            RCCP_END_DT,
+            RCCP_PHOTO_NM,
+            RCCP_CREATE_DT,
+            RCCP_UPDATE_DT,
+            ADMIN_ID
+        ) VALUES (
+            #{companyId},
+            #{recruitName},
+            #{recruitCompanyBeginDate},
+            #{recruitCompanyEndDate},
+            #{recruitCompanyPhotoName},
+            NOW(),
+            NOW(),
+            #{adminId}
+        )
+    </insert>
+
+    <!--채용 기업 직무 INSERT-->
+    <insert id="insertRecruitCompanyJob" parameterType="RecruitCompanyJob" useGeneratedKeys="true" keyProperty="recruitCompanyJobId">
+        INSERT INTO tb_recruit_company_job (
+            RCCP_ID,
+            JBCT2_ID,
+            RCCJ_STATE,
+            RCCJ_EDU,
+            RCCJ_DETAIL
+        ) VALUES
+        <foreach collection="recruitCompanyJobs" item="i" separator=" , ">
+        (
+            #{recruitCompanyId},
+            #{i.jobCategory2Id},
+            #{i.recruitCompanyJobState},
+            #{i.recruitCompanyJobEdu},
+            #{i.recruitCompanyJobDetail}
+        )
+        </foreach>
+    </insert>
+
+    <!--채용 기업 직무의 자소서 항목 INSERT-->
+    <insert id="insertRecruitCompanyJobArticle" parameterType="RecruitCompanyJobArticle" useGeneratedKeys="true" keyProperty="recruitCompanyJobArticleId">
+        INSERT INTO tb_recruit_company_job_article (
+            RCCJ_ID,
+            RCJA_CONTENT
+        ) VALUES
+        <foreach collection="recruitCompanyJobArticles" item="i" separator=" , ">
+        (
+            #{i.recruitCompanyJobId},
+            #{i.recruitCompanyJobArticleContent}
+        )
+        </foreach>
+    </insert>
+
+    <!--채용 기업 리스트 SELECT ALL-->
+    <select id="selectAllRecruitCompany" resultMap="recruitCompanyResultMap">
+        SELECT
+            RCP.RCCP_ID,
+            CPY.COMP_NM,
+            RCP.RCCP_NM,
+            RCP.RCCP_BEGIN_DT,
+            RCP.RCCP_END_DT
+        FROM
+            tb_recruit_company AS RCP,
+            tb_company AS CPY
+        WHERE
+            RCP.COMP_ID = CPY.COMP_ID
+    </select>
+
+
+    <!--직무 대분류 resultMap-->
+    <resultMap id="jobCategory1ResultMap" type="JobCategory1">
+        <id column="JBCT1_ID" property="jobCategory1Id"/>
+        <result column="JBCT1_NM" property="jobCategory1Name"/>
+    </resultMap>
+
+    <!--직무 소분류 resultMap-->
+    <resultMap id="jobCategory2ResultMap" type="JobCategory2">
+        <id column="JBCT2_ID" property="jobCategory2Id"/>
+        <result column="JBCT1_ID" property="jobCategory1Id"/>
+        <result column="JBCT2_NM" property="jobCategory2Name"/>
+        <association property="jobCategory1" resultMap="jobCategory1ResultMap"/>
+    </resultMap>
+
+    <!--채용기업 resultMap-->
+    <resultMap id="recruitCompanyResultMap" type="RecruitCompany">
+        <id column="RCCP_ID" property="recruitCompanyId"/>
+        <result column="COMP_ID" property="companyId"/>
+        <result column="RCCP_NM" property="recruitName"/>
+        <result column="RCCP_BEGIN_DT" property="recruitCompanyBeginDate"/>
+        <result column="RCCP_END_DT" property="recruitCompanyEndDate"/>
+        <result column="RCCP_PHOTO_NM" property="recruitCompanyPhotoName"/>
+        <result column="RCCP_CREATE_DT" property="recruitCompanyCreateDate"/>
+        <result column="RCCP_UPDATE_DT" property="recruitCompanyUpdateDate"/>
+        <result column="ADMIN_ID" property="adminId"/>
+        <association property="company" resultMap="companyResultMap"/>
+        <association property="admin" resultMap="adminResultMap"/>
+    </resultMap>
+
+    <!--채용 기업의 직무 resultMap-->
+    <resultMap id="recruitCompanyJobResultMap" type="RecruitCompanyJob">
+        <id column="RCCJ_ID" property="recruitCompanyJobId"/>
+        <result column="RCCP_ID" property="recruitCompanyId"/>
+        <result column="JBCT2_ID" property="jobCategory2Id"/>
+        <result column="RCCJ_STATE" property="recruitCompanyJobState"/>
+        <result column="RCCJ_EDU" property="recruitCompanyJobEdu"/>
+        <result column="RCCJ_DETAIL" property="recruitCompanyJobDetail"/>
+        <association property="recruitCompany" resultMap="recruitCompanyResultMap"/>
+        <association property="jobCategory2" resultMap="jobCategory2ResultMap"/>
+        <collection property="recruitCompanyJobArticles" javaType="java.util.ArrayList" column="RCJA_ID" ofType="RecruitCompanyJobArticle"/>
+    </resultMap>
+
+    <!--채용 기업의 직무별 자기소개서 항목 resultMap-->
+    <resultMap id="recruitCompanyJobArticleResultMap" type="RecruitCompanyJobArticle">
+        <id column="RCJA_ID" property="recruitCompanyJobArticleId"/>
+        <result column="RCCJ_ID" property="recruitCompanyJobId"/>
+        <result column="RCJA_CONTENT" property="recruitCompanyJobArticleContent"/>
+        <association property="recruitCompanyJob" resultMap="recruitCompanyJobResultMap"/>
+    </resultMap>
+
+    <!--관리자 resultMap-->
+    <resultMap id="adminResultMap" type="Admin">
+        <id column="ADMIN_ID" property="adminId"/>
+        <result column="ADMIN_EMAIL" property="adminEmail"/>
+        <result column="ADMIN_NM" property="adminName"/>
+        <result column="ADMIN_PW" property="adminPassword"/>
+        <result column="ADMIN_JOIN_DT" property="adminJoinDate"/>
+        <result column="ADMIN_UPDATE_DT" property="adminUpdateDate"/>
+        <result column="ADMIN_LOGIN_DT" property="adminLoginDate"/>
+    </resultMap>
+
+    <!--기업 resultMap-->
+    <resultMap id="companyResultMap" type="Company">
+        <id column="COMP_ID" property="companyId"/>
+        <result column="IDCT2_ID" property="industryCategory2Id"/>
+        <result column="COMP_NM" property="companyName"/>
+        <result column="COMP_TYPE" property="companyType"/>
+        <result column="COMP_HOMEPAGE" property="companyHomepage"/>
+        <result column="COMP_BIRTH_DT" property="companyBirthDate" javaType="java.sql.Date"/>
+        <result column="COMP_ADDR" property="companyAddress"/>
+        <result column="COMP_CEO" property="companyCeo"/>
+        <result column="COMP_PHONE" property="companyPhone"/>
+        <result column="COMP_TOTALSALES" property="companyTotalsales"/>
+        <result column="COMP_CREATE_DT" property="companyCreateDate"/>
+        <result column="COMP_UPDATE_DT" property="companyUpdateDate"/>
+        <result column="ADMIN_ID" property="adminId"/>
+        <association property="admin" resultMap="adminResultMap"/>
+        <association property="industryCategory2" resultMap="industryCategory2ResultMap"/>
+    </resultMap>
+
+    <!--업종 대분류 resultMap-->
+    <resultMap id="industryCategory1ResultMap" type="industryCategory1">
+        <id column="IDCT1_ID" property="industryCategory1Id"/>
+        <result column="IDCT1_NM" property="industryCategory1Name"/>
+    </resultMap>
+
+    <!--업종 소분류 resultMap-->
+    <resultMap id="industryCategory2ResultMap" type="industryCategory2">
+        <id column="IDCT2_ID" property="industryCategory2Id"/>
+        <result column="IDCT1_ID" property="industryCategory1Id"/>
+        <result column="IDCT2_NM" property="industryCategory2Name"/>
+        <association property="industryCategory1" resultMap="industryCategory1ResultMap"/>
+    </resultMap>
+</mapper>

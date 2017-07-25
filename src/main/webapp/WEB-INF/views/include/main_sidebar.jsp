@@ -87,7 +87,6 @@
                         <ul class="treeview-menu">
                             <li><a href="${path}/company/info/create"><i class="fa fa-pencil"></i> 기업정보 등록</a></li>
                             <li><a href="${path}/company/info/list"><i class="fa fa-list"></i> 기업정보 목록</a></li>
-                            <li><a href="${path}/company/info/update"><i class="fa fa-pencil-square-o"></i> 기업정보 수정</a></li>
                         </ul>
                     </li>
 
@@ -101,8 +100,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="${path}/recruit/create"><i class="fa fa-pencil"></i> 채용 등록</a></li>
+                            <li><a href="${path}/recruit/create/article"><i class="fa fa-pencil"></i> 자소서 항목 등록</a></li>
                             <li><a href="${path}/recruit/list"><i class="fa fa-list"></i> 채용 목록</a></li>
-                            <li><a href="${path}/recruit/update"><i class="fa fa-pencil-square-o"></i> 채용 수정</a></li>
                         </ul>
                     </li>
 

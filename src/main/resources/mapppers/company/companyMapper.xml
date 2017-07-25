@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="company">
-    <!--업종 대분류 SELECT-->
+    <!--업종 대분류 SELECT ALL-->
     <select id="getIndustryCategory1" resultMap="industryCategory1ResultMap">
         SELECT
             IDCT1_ID,
-            INCT1_NM
+            IDCT1_NM
         FROM tb_industry_category1
     </select>
 
-    <!--업종 소분류 SELECT-->
+    <!--업종 소분류 SELECT BY category1Id-->
     <select id="findListByCategory1Id" resultMap="industryCategory2ResultMap">
         SELECT
             IDCT2_ID,
@@ -76,7 +76,7 @@
         SELECT
             CPY.COMP_ID,
             CT1.IDCT1_ID,
-            CT1.INCT1_NM,
+            CT1.IDCT1_NM,
             CT2.IDCT2_NM,
             CPY.IDCT2_ID,
             CPY.COMP_NM,
@@ -159,7 +159,7 @@
     <!--업종 대분류 resultMap-->
     <resultMap id="industryCategory1ResultMap" type="industryCategory1">
         <id column="IDCT1_ID" property="industryCategory1Id"/>
-        <result column="INCT1_NM" property="industryCategory1Name"/>
+        <result column="IDCT1_NM" property="industryCategory1Name"/>
     </resultMap>
 
     <!--업종 소분류 resultMap-->
