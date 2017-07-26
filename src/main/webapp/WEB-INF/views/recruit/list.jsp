@@ -30,7 +30,7 @@
         <section class="content">
             <!-- Main row -->
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-8">
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">기업 리스트</h3>
@@ -44,17 +44,15 @@
                                     <th>채용명</th>
                                     <th>채용시작일</th>
                                     <th>채용마감일</th>
-                                    <th>자소서 항목 등록</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="i" items="${companies}">
                                     <tr>
                                         <td>${i.company.companyName}</td>
-                                        <td>${i.recruitName}</td>
+                                        <td><a href="/recruit/${i.recruitCompanyId}/view">${i.recruitName}</a></td>
                                         <td>${i.recruitCompanyBeginDate}</td>
                                         <td>${i.recruitCompanyEndDate}</td>
-                                        <td><button class="btn btn-primary btn-xs" value="등록">등록</button>${i.recruitCompanyId}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

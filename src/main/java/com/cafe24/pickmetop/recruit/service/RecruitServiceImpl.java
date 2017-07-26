@@ -58,4 +58,19 @@ public class RecruitServiceImpl implements RecruitService {
         return recruitDao.getRecruitCompanies();
     }
 
+    @Override
+    public RecruitCompany getRecruitCompanyByRecruitCompanyId(int recruitCompanyId) {
+        return recruitDao.getRecruitCompanyByRecruitCompanyId(recruitCompanyId);
+    }
+
+    @Override
+    public List<RecruitCompanyJob> getRecruitCompanyJobByRecruitCompanyId(int recruitCompanyId) {
+        return recruitDao.getRecruitCompanyJobByRecruitCompanyId(recruitCompanyId);
+    }
+
+    @Override
+    public RecruitCompanyJob getRecruitCompanyJobByRecruitCompanyJobId(int recruitCompanyJobId) {
+        return recruitDao.getRecruitCompanyJobByRecruitCompanyJobId(recruitCompanyJobId);
+    }
+
 }

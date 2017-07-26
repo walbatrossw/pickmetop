@@ -104,7 +104,6 @@
                                     </div>
                                     <div class="modal-body">
                                         <form role="form" id="companyInfoUpdate" method="post" action="/company/info/${company.companyId}/update">
-                                            <input type="hidden" name="_method" value="put">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label for="companyName">기업명</label>

@@ -44,7 +44,8 @@
     </select>
 
     <!--채용 기업 INSERT-->
-    <insert id="insertRecruitCompany" parameterType="RecruitCompany" useGeneratedKeys="true" keyProperty="recruitCompanyId">
+    <insert id="insertRecruitCompany" parameterType="RecruitCompany" useGeneratedKeys="true"
+            keyProperty="recruitCompanyId">
         INSERT INTO tb_recruit_company (
             COMP_ID,
             RCCP_NM,
@@ -67,7 +68,8 @@
     </insert>
 
     <!--채용 기업 직무 INSERT-->
-    <insert id="insertRecruitCompanyJob" parameterType="RecruitCompanyJob" useGeneratedKeys="true" keyProperty="recruitCompanyJobId">
+    <insert id="insertRecruitCompanyJob" parameterType="RecruitCompanyJob" useGeneratedKeys="true"
+            keyProperty="recruitCompanyJobId">
         INSERT INTO tb_recruit_company_job (
             RCCP_ID,
             JBCT2_ID,
@@ -76,32 +78,33 @@
             RCCJ_DETAIL
         ) VALUES
         <foreach collection="recruitCompanyJobs" item="i" separator=" , ">
-        (
+            (
             #{recruitCompanyId},
             #{i.jobCategory2Id},
             #{i.recruitCompanyJobState},
             #{i.recruitCompanyJobEdu},
             #{i.recruitCompanyJobDetail}
-        )
+            )
         </foreach>
     </insert>
 
     <!--채용 기업 직무의 자소서 항목 INSERT-->
-    <insert id="insertRecruitCompanyJobArticle" parameterType="RecruitCompanyJobArticle" useGeneratedKeys="true" keyProperty="recruitCompanyJobArticleId">
+    <insert id="insertRecruitCompanyJobArticle" parameterType="RecruitCompanyJobArticle" useGeneratedKeys="true"
+            keyProperty="recruitCompanyJobArticleId">
         INSERT INTO tb_recruit_company_job_article (
             RCCJ_ID,
             RCJA_CONTENT
         ) VALUES
         <foreach collection="recruitCompanyJobArticles" item="i" separator=" , ">
-        (
-            #{i.recruitCompanyJobId},
+            (
+            #{recruitCompanyJobId},
             #{i.recruitCompanyJobArticleContent}
-        )
+            )
         </foreach>
     </insert>
 
     <!--채용 기업 리스트 SELECT ALL-->
-    <select id="selectAllRecruitCompany" resultMap="recruitCompanyResultMap">
+    <select id="selectListRecruitCompany" resultMap="recruitCompanyResultMap">
         SELECT
             RCP.RCCP_ID,
             CPY.COMP_NM,
@@ -115,6 +118,73 @@
             RCP.COMP_ID = CPY.COMP_ID
     </select>
 
+    <!--채용 기업 SELECT ONE BY recruitCompanyId-->
+    <select id="selectOneRecruitCompanyByRecruitCompanyId" resultMap="recruitCompanyResultMap">
+        SELECT
+            RCP.RCCP_ID,
+            RCP.COMP_ID,
+            CPY.COMP_NM,
+            RCP.RCCP_NM,
+            RCP.RCCP_BEGIN_DT,
+            RCP.RCCP_END_DT,
+            RCP.RCCP_PHOTO_NM,
+            RCP.RCCP_CREATE_DT,
+            RCP.RCCP_UPDATE_DT,
+            RCP.ADMIN_ID
+        FROM
+            tb_recruit_company AS RCP,
+            tb_company AS CPY
+        WHERE
+            RCP.COMP_ID = CPY.COMP_ID
+            AND RCP.RCCP_ID = #{recruitCompanyId}
+    </select>
+
+    <!--채용 기업 직무 SELECT LIST BY recruitCompanyId-->
+    <select id="selectListRecruitCompanyJobByRecruitCompanyId" resultMap="recruitCompanyJobResultMap">
+        SELECT
+            RCJ.RCCJ_ID,
+            RCJ.RCCP_ID,
+            RCJ.JBCT2_ID,
+            RCJ.RCCJ_STATE,
+            RCJ.RCCJ_EDU,
+            RCJ.RCCJ_DETAIL,
+            JCT1.JBCT1_NM,
+            JCT2.JBCT2_NM
+        FROM
+            tb_recruit_company_job AS RCJ,
+            tb_job_category1 AS JCT1,
+            tb_job_category2 AS JCT2
+        WHERE
+            RCJ.JBCT2_ID = JCT2.JBCT2_ID
+            AND JCT2.JBCT1_ID = JCT1.JBCT1_ID
+            AND RCJ.RCCP_ID = #{recruitCompanyId};
+    </select>
+
+    <select id="selectOneRecruitCompanyJobByRecruitCompanyJobId" resultMap="recruitCompanyJobResultMap">
+        SELECT
+            CPY.COMP_NM,
+            RCP.RCCP_NM,
+            RCJ.RCCJ_ID,
+            RCJ.RCCP_ID,
+            RCJ.JBCT2_ID,
+            RCJ.RCCJ_STATE,
+            RCJ.RCCJ_EDU,
+            JCT1.JBCT1_NM,
+            JCT2.JBCT2_NM,
+            RCJ.RCCJ_DETAIL
+        FROM
+            tb_recruit_company_job AS RCJ,
+            tb_recruit_company AS RCP,
+            tb_job_category1 AS JCT1,
+            tb_job_category2 AS JCT2,
+            tb_company AS CPY
+        WHERE
+            RCP.RCCP_ID = RCJ.RCCP_ID
+            AND CPY.COMP_ID = RCP.COMP_ID
+            AND JCT2.JBCT2_ID = RCJ.JBCT2_ID
+            AND JCT2.JBCT1_ID = JCT1.JBCT1_ID
+            AND RCCJ_ID = #{recruitCompanyJobId}
+    </select>
 
     <!--직무 대분류 resultMap-->
     <resultMap id="jobCategory1ResultMap" type="JobCategory1">
@@ -155,7 +225,8 @@
         <result column="RCCJ_DETAIL" property="recruitCompanyJobDetail"/>
         <association property="recruitCompany" resultMap="recruitCompanyResultMap"/>
         <association property="jobCategory2" resultMap="jobCategory2ResultMap"/>
-        <collection property="recruitCompanyJobArticles" javaType="java.util.ArrayList" column="RCJA_ID" ofType="RecruitCompanyJobArticle"/>
+        <collection property="recruitCompanyJobs" javaType="java.util.ArrayList" column="RCCJ_ID"
+                    ofType="RecruitCompanyJob"/>
     </resultMap>
 
     <!--채용 기업의 직무별 자기소개서 항목 resultMap-->

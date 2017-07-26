@@ -23,4 +23,10 @@ public interface RecruitDao {
     void createRecruitJobArticle(RecruitCompanyJobArticle recruitCompanyJobArticle);
 
     List<RecruitCompany> getRecruitCompanies();
+
+    RecruitCompany getRecruitCompanyByRecruitCompanyId(int recruitCompanyId);
+
+    List<RecruitCompanyJob> getRecruitCompanyJobByRecruitCompanyId(int recruitCompanyId);
+
+    RecruitCompanyJob getRecruitCompanyJobByRecruitCompanyJobId(int recruitCompanyJobId);
 }
