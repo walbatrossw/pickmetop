@@ -39,4 +39,7 @@ public interface RecruitService {
 
     // 채용 기업 직무 상세보기
     RecruitCompanyJob getRecruitCompanyJobByRecruitCompanyJobId(int recruitCompanyJobId);
+
+    // 채용 기업 직무별 자소서 항목 리스트
+    List<RecruitCompanyJobArticle> getArticlesByRecruitCompanyJobId(int recruitCompanyJobId);
 }

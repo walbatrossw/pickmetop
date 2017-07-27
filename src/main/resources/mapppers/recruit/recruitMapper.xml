@@ -186,6 +186,15 @@
             AND RCCJ_ID = #{recruitCompanyJobId}
     </select>
 
+    <select id="selectArticlesByRecruitCompanyJobId" resultMap="recruitCompanyJobArticleResultMap">
+        SELECT
+            RCJA_ID,
+            RCCJ_ID,
+            RCJA_CONTENT
+        FROM tb_recruit_company_job_article
+        WHERE RCCJ_ID = #{recruitCompanyJobId}
+    </select>
+
     <!--직무 대분류 resultMap-->
     <resultMap id="jobCategory1ResultMap" type="JobCategory1">
         <id column="JBCT1_ID" property="jobCategory1Id"/>

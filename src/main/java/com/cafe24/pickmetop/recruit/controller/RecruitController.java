@@ -100,6 +100,15 @@ public class RecruitController {
         return "redirect:/recruit/list";
     }
 
+    /*직무별 자기소개서 항목 리스트 : GET*/
+    @RequestMapping(value = "/{recruitCompanyJobId}/articles", method = RequestMethod.GET)
+    @ResponseBody
+    public List<RecruitCompanyJobArticle> getArticlesByRecruitCompanyJobId(@PathVariable int recruitCompanyJobId) {
+        List<RecruitCompanyJobArticle> articles = recruitService.getArticlesByRecruitCompanyJobId(recruitCompanyJobId);
+        System.out.println(articles + "articles....................................");
+        return articles;
+    }
+
     /*채용정보 달력 : GET*/
     @RequestMapping(value = "/calendar", method = RequestMethod.GET)
     public String calendar() {

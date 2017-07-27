@@ -22,7 +22,6 @@ public class CompanyController {
     CompanyService companyService;
 
     /*기업정보 등록 : GET*/
-    @Transactional
     @RequestMapping(value = "/info/create", method = RequestMethod.GET)
     public String create(Model model) throws Exception {
         // 업종 대분류 List

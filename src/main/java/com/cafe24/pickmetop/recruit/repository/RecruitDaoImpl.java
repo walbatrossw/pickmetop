@@ -73,4 +73,9 @@ public class RecruitDaoImpl implements RecruitDao {
         return sqlSession.selectOne("recruit.selectOneRecruitCompanyJobByRecruitCompanyJobId", recruitCompanyJobId);
     }
 
+    @Override
+    public List<RecruitCompanyJobArticle> getArticlesByRecruitCompanyJobId(int recruitCompanyJobId) {
+        return sqlSession.selectList("recruit.selectArticlesByRecruitCompanyJobId", recruitCompanyJobId);
+    }
+
 }

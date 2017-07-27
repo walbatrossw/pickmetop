@@ -40,6 +40,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>번호</th>
                                     <th>기업명</th>
                                     <th>채용명</th>
                                     <th>채용시작일</th>
@@ -47,12 +48,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="i" items="${companies}">
+                                <c:forEach var="companies" items="${companies}" varStatus="i">
                                     <tr>
-                                        <td>${i.company.companyName}</td>
-                                        <td><a href="/recruit/${i.recruitCompanyId}/view">${i.recruitName}</a></td>
-                                        <td>${i.recruitCompanyBeginDate}</td>
-                                        <td>${i.recruitCompanyEndDate}</td>
+                                        <td>${i.count}</td>
+                                        <td>${companies.company.companyName}</td>
+                                        <td><a href="/recruit/${companies.recruitCompanyId}/view">${companies.recruitName}</a></td>
+                                        <td>${companies.recruitCompanyBeginDate}</td>
+                                        <td>${companies.recruitCompanyEndDate}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
