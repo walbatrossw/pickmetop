@@ -29,7 +29,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <!-- Profile Image -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -66,8 +66,27 @@
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">채용 기업의 직무별 자소서 항목 리스트</h3>
+                        </div>
+                        <div class="box-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <c:forEach var="articles" items="${articles}" varStatus="i">
+                                        <strong><i class="fa fa-edit margin-r-5"></i> ${i.index}번 항목</strong>
+                                        <p class="text-muted">${articles.recruitCompanyJobArticleContent}</p>
+                                    </c:forEach>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="box box-primary">

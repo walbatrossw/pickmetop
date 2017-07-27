@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -86,10 +87,14 @@ public class RecruitController {
 
     /*직무별 자기소개서 항목 작성 : GET*/
     @RequestMapping(value = "/{recruitCompanyJobId}/article/create", method = RequestMethod.GET)
-    public String articleCreate(@PathVariable int recruitCompanyJobId, Model model) {
+    public ModelAndView articleCreate(@PathVariable int recruitCompanyJobId) {
         RecruitCompanyJob recruitCompanyJob = recruitService.getRecruitCompanyJobByRecruitCompanyJobId(recruitCompanyJobId);
-        model.addAttribute("recruitJob", recruitCompanyJob);
-        return "recruit/createArticle";
+        List<RecruitCompanyJobArticle> articles = recruitService.getArticlesByRecruitCompanyJobId(recruitCompanyJobId);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("articles", articles);
+        mav.addObject("recruitJob", recruitCompanyJob);
+        mav.setViewName("recruit/createArticle");
+        return mav;
     }
 
     /*직무별 자기소개서 항목 등록 : POST*/
@@ -108,6 +113,7 @@ public class RecruitController {
         System.out.println(articles + "articles....................................");
         return articles;
     }
+
 
     /*채용정보 달력 : GET*/
     @RequestMapping(value = "/calendar", method = RequestMethod.GET)

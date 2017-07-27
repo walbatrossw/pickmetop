@@ -89,6 +89,7 @@
                                     <td>${recruitJobs.jobCategory2.jobCategory1.jobCategory1Name}</td>
                                     <td>${recruitJobs.jobCategory2.jobCategory2Name}</td>
                                     <td>${recruitJobs.recruitCompanyJobDetail}</td>
+                                    <td><a class="btn btn-primary btn-xs" href="${path}/recruit/${recruitJobs.recruitCompanyJobId}/article/create" role="button">작성페이지</a></td>
                                     <td>
                                         <div class="row">
                                             <div class="articleAdd col-xs-2">
