@@ -37,9 +37,22 @@
                             <h3 class="box-title">기업 정보</h3>
                         </div>
                         <div class="box-body">
-                            <img class="profile-user-img img-responsive" src="/dist/img/user4-128x128.jpg" alt="User profile picture">
-                            <h3 class="profile-username text-center">기업로고</h3>
                             <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <strong><i class="fa fa-edit margin-r-5"></i> 기업로고</strong>
+                                    <c:choose>
+                                        <c:when test="${company.companyPhotoUrl != null}">
+                                            <div align="center">
+                                                    <img class="img-responsive" src="${path}/dist/img/companies/${company.companyPhotoUrl}">
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div align="center">
+                                                <img class="img-responsive" src="${path}/dist/img/default-company-image.png">
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </li>
                                 <li class="list-group-item">
                                     <strong><i class="fa fa-edit margin-r-5"></i> 기업명</strong>
                                     <p class="text-muted">${company.companyName}</p>

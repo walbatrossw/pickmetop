@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
 
 
@@ -40,6 +41,19 @@ public class CompanyController {
     /*기업정보 등록 : POST*/
     @RequestMapping(value = "/info/create", method = RequestMethod.POST)
     public String create(@ModelAttribute Company company, HttpSession session) throws Exception{
+        String companyPhotoName = "";
+
+        if (!company.getCompanyPhoto().isEmpty()) {
+            companyPhotoName = company.getCompanyPhoto().getOriginalFilename();
+            String path = "C:\\DEV\\WORKSPACE\\Sprinb-MVC\\pickmetop\\src\\main\\webapp\\resources\\dist\\img\\companies\\";
+            try {
+                new File(path).mkdir();
+                company.getCompanyPhoto().transferTo(new File(path+companyPhotoName));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            company.setCompanyPhotoUrl(companyPhotoName);
+        }
         int writerId = (Integer) session.getAttribute("adminId");
         company.setAdminId(writerId);
         companyService.create(company);

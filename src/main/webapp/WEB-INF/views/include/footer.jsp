@@ -17,6 +17,10 @@
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
+
+<!--Image Upload-->
+<script src="/dist/js/imageUpload/jasny-bootstrap.min.js"></script>
+
 <script>
     $(function () {
         $('input').iCheck({

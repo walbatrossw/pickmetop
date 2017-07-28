@@ -31,6 +31,7 @@
             COMP_ADDR,
             COMP_CEO,
             COMP_PHONE,
+            COMP_PHOTO_URL,
             COMP_TOTALSALES,
             COMP_CREATE_DT,
             COMP_UPDATE_DT,
@@ -44,6 +45,7 @@
             #{companyAddress},
             #{companyCeo},
             #{companyPhone},
+            #{companyPhotoUrl},
             #{companyTotalsales},
             NOW(),
             NOW(),
@@ -86,6 +88,7 @@
             CPY.COMP_ADDR,
             CPY.COMP_CEO,
             CPY.COMP_PHONE,
+            CPY.COMP_PHOTO_URL,
             CPY.COMP_TOTALSALES,
             CPY.COMP_CREATE_DT,
             CPY.COMP_UPDATE_DT,
@@ -137,6 +140,7 @@
         <result column="COMP_ADDR" property="companyAddress"/>
         <result column="COMP_CEO" property="companyCeo"/>
         <result column="COMP_PHONE" property="companyPhone"/>
+        <result column="COMP_PHOTO_URL" property="companyPhotoUrl"/>
         <result column="COMP_TOTALSALES" property="companyTotalsales"/>
         <result column="COMP_CREATE_DT" property="companyCreateDate"/>
         <result column="COMP_UPDATE_DT" property="companyUpdateDate"/>

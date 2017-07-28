@@ -37,84 +37,108 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form id="companyCreate" action="${path}/company/info/create" method="post">
+                        <form id="companyCreate" action="${path}/company/info/create" method="post" enctype="multipart/form-data">
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2" align="center">
                                         <div class="form-group">
-                                            <label for="companyName">기업명</label>
-                                            <input type="text" class="form-control" id="companyName" name="companyName" placeholder="예) 삼성전자">
+                                            <label for="companyPhoto">기업 로고</label>
+                                            <div class="input-group">
+                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                                        <img data-src="${path}/dist/img/default-company-image.png">
+                                                    </div>
+                                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;"></div>
+                                                    <div>
+                                                        <span class="btn btn-default btn-file"><span class="fileinput-new">사진 선택</span>
+                                                            <span class="fileinput-exists">변경</span>
+                                                            <input type="file" class="form-control" id="companyPhoto" name="companyPhoto">
+                                                        </span>
+                                                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">삭제</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="industryCategory1">업종 대분류</label>
-                                            <select class="form-control" id="industryCategory1">
-                                                <option value="">::::선택::::</option>
-                                                <c:forEach var="i" items="${industryCategory1}">
-                                                    <option value="${i.industryCategory1Id}">${i.industryCategory1Name}</option>
-                                                </c:forEach>
-                                            </select>
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyName">기업명</label>
+                                                <input type="text" class="form-control" id="companyName" name="companyName" placeholder="예) 삼성전자">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="industryCategory1">업종 대분류</label>
+                                                <select class="form-control" id="industryCategory1">
+                                                    <option value="">::::선택::::</option>
+                                                    <c:forEach var="i" items="${industryCategory1}">
+                                                        <option value="${i.industryCategory1Id}">${i.industryCategory1Name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="industryCategory2">업종 소분류</label>
+                                                <select class="form-control" id="industryCategory2" name="industryCategory2Id">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyType">기업형태</label>
+                                                <select class="form-control" id="companyType" name="companyType">
+                                                    <option value="">::::선택::::</option>
+                                                    <option value="대기업">대기업</option>
+                                                    <option value="중견기업">중견기업</option>
+                                                    <option value="중소기업">중소기업</option>
+                                                    <option value="외국계">외국계</option>
+                                                    <option value="스타트업">스타트업</option>
+                                                    <option value="공공기관">공공기관</option>
+                                                    <option value="공기업">공기업</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyBirthDate">설립일자</label>
+                                                <input type="date" class="form-control" id="companyBirthDate" name="companyBirthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyCeo">대표이사</label>
+                                                <input type="text" class="form-control" id="companyCeo" name="companyCeo" placeholder="예) 홍길동">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyHomepage">공식홈페이지</label>
+                                                <input type="text" class="form-control" id="companyHomepage" name="companyHomepage" placeholder="예) http://www.abc.com">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyPhone">대표번호</label>
+                                                <input type="text" class="form-control" id="companyPhone" name="companyPhone" placeholder="예) 02-1234-5678">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="companyTotalsales">매출액 (단위: 백만원)</label>
+                                                <input type="number" class="form-control" id="companyTotalsales" name="companyTotalsales" min="1">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="form-group">
+                                                <label for="companyAddress">본사주소</label>
+                                                <input type="text" class="form-control" id="companyAddress" name="companyAddress" placeholder="예) 서울시 강남구 XXX번지 ">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="industryCategory2">업종 소분류</label>
-                                            <select class="form-control" id="industryCategory2" name="industryCategory2Id">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyType">기업형태</label>
-                                            <select class="form-control" id="companyType" name="companyType">
-                                                <option value="">::::선택::::</option>
-                                                <option value="대기업">대기업</option>
-                                                <option value="중견기업">중견기업</option>
-                                                <option value="중소기업">중소기업</option>
-                                                <option value="외국계">외국계</option>
-                                                <option value="스타트업">스타트업</option>
-                                                <option value="공공기관">공공기관</option>
-                                                <option value="공기업">공기업</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyBirthDate">설립일자</label>
-                                            <input type="date" class="form-control" id="companyBirthDate" name="companyBirthDate">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyCeo">대표이사</label>
-                                            <input type="text" class="form-control" id="companyCeo" name="companyCeo" placeholder="예) 홍길동">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyHomepage">공식홈페이지</label>
-                                            <input type="text" class="form-control" id="companyHomepage" name="companyHomepage" placeholder="예) http://www.abc.com">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyPhone">대표번호</label>
-                                            <input type="text" class="form-control" id="companyPhone" name="companyPhone" placeholder="예) 02-1234-5678">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="form-group">
-                                            <label for="companyAddress">본사주소</label>
-                                            <input type="text" class="form-control" id="companyAddress" name="companyAddress" placeholder="예) 서울시 강남구 XXX번지 ">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="companyTotalsales">매출액 (단위: 백만원)</label>
-                                            <input type="number" class="form-control" id="companyTotalsales" name="companyTotalsales" min="1">
-                                        </div>
-                                    </div>
+
+
                                 </div>
                             </div>
                             <!-- /.box-body -->

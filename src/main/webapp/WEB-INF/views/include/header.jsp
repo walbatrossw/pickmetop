@@ -23,9 +23,11 @@
 <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="/plugins/iCheck/all.css">
-
 <!-- DataTables -->
 <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+
+<!-- ImageUpload -->
+<link href="/dist/css/imageUpload/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

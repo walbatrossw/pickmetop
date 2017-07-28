@@ -2,6 +2,7 @@ package com.cafe24.pickmetop.company.domain;
 
 import com.cafe24.pickmetop.admin.domain.Admin;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
@@ -18,6 +19,9 @@ public class Company {
     private String companyAddress;
     private String companyPhone;
     private int companyTotalsales;
+    private MultipartFile companyPhoto;
+    private String companyPhotoName;
+    private String companyPhotoUrl;
     private Date companyCreateDate;
     private Date companyUpdateDate;
     private int adminId;
@@ -104,6 +108,30 @@ public class Company {
         this.companyTotalsales = companyTotalsales;
     }
 
+    public MultipartFile getCompanyPhoto() {
+        return companyPhoto;
+    }
+
+    public void setCompanyPhoto(MultipartFile companyPhoto) {
+        this.companyPhoto = companyPhoto;
+    }
+
+    public String getCompanyPhotoName() {
+        return companyPhotoName;
+    }
+
+    public void setCompanyPhotoName(String companyPhotoName) {
+        this.companyPhotoName = companyPhotoName;
+    }
+
+    public String getCompanyPhotoUrl() {
+        return companyPhotoUrl;
+    }
+
+    public void setCompanyPhotoUrl(String companyPhotoUrl) {
+        this.companyPhotoUrl = companyPhotoUrl;
+    }
+
     public Date getCompanyCreateDate() {
         return companyCreateDate;
     }
@@ -157,6 +185,9 @@ public class Company {
                 ", companyAddress='" + companyAddress + '\'' +
                 ", companyPhone='" + companyPhone + '\'' +
                 ", companyTotalsales=" + companyTotalsales +
+                ", companyPhoto=" + companyPhoto +
+                ", companyPhotoName='" + companyPhotoName + '\'' +
+                ", companyPhotoUrl='" + companyPhotoUrl + '\'' +
                 ", companyCreateDate=" + companyCreateDate +
                 ", companyUpdateDate=" + companyUpdateDate +
                 ", adminId=" + adminId +
